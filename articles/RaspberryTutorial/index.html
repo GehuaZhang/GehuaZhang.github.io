@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5557444925158715",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <meta charset="utf-8">
+  
+  <title>Raspberry Pi 3 Setup - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi 3 Setup">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/RaspberryTutorial/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/RaspberryTutorial/raspberry-pi-logo.jpg">
+<meta property="og:updated_time" content="2017-06-26T05:35:36.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raspberry Pi 3 Setup">
+<meta name="twitter:description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/RaspberryTutorial/raspberry-pi-logo.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-RaspberryTutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Raspberry Pi 3 Setup
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/RaspberryTutorial/" class="article-date">
+  <time datetime="2017-06-11T00:00:00.000Z" itemprop="datePublished">2017-06-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/articles/RaspberryTutorial/raspberry-pi-logo.jpg" alt=""></p>
+<h4 id="How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC"><a href="#How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC" class="headerlink" title="How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC"></a>How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC</h4><a id="more"></a>
+<ol>
+<li>First of all, you need to connect your Raspberry Pi to a monitor, install Raspbian and configure it. After everything is done, open terminal/shell in your Pi.</li>
+</ol>
+<ol>
+<li><p>Update system softwares first</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install</div><div class="line">$ sudo apt-get update</div></pre></td></tr></table></figure>
+<p>Also remember to allow remote in Pi for Windows remote desktop control</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install xrdp</div></pre></td></tr></table></figure>
+<p>Install VNC in Pi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install tightvncserver</div></pre></td></tr></table></figure>
+</li>
+<li><p>Allow Pi to auto-search wifi and auto-connect</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo nano /etc/network/interfaces</div></pre></td></tr></table></figure>
+<p>Modify <code>iface wlan0 inet manual</code> to <code>iface wlan0 inet dhcp</code>. The file should be like:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iface wlan0 inet dhcp</div><div class="line">wpa_conf /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
+<p>Save and exit. Then continue:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</div></pre></td></tr></table></figure>
+<p>Add your wifi infos in this format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">network=&#123;</div><div class="line">ssid=&quot;WiFi-name1&quot;</div><div class="line">psk=&quot;WiFi-password1&quot;</div><div class="line">priority=5</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/3000word/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          GRE 3000 Words App for MacOS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/MeasureTheoryNote1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Measure Theory Notes-1 测度论笔记-1&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-gehuazhang-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/RaspberryTutorial/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

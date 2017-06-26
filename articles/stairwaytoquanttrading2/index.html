@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5557444925158715",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <meta charset="utf-8">
+  
+  <title>Stairway to Quant Trading - Part 2 - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Dynamic Trading System Programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stairway to Quant Trading - Part 2">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading2/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="Dynamic Trading System Programming">
+<meta property="og:updated_time" content="2017-05-22T20:18:53.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stairway to Quant Trading - Part 2">
+<meta name="twitter:description" content="Dynamic Trading System Programming">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-stairwaytoquanttrading2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Stairway to Quant Trading - Part 2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/stairwaytoquanttrading2/" class="article-date">
+  <time datetime="2017-04-20T06:29:02.000Z" itemprop="datePublished">2017-04-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stairway-to-quant-trading/">Stairway to Quant Trading</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Dynamic Trading System Programming<br><a id="more"></a><br>To run your trading strategies in a real time environment is different from backtesting your ideas on a full set of data, though they have lots of similarities and both called “dynamic”.</p>
+<p>A simplified analogy used by the most basic Physics idea: If you have a relative movement with a target, either you are moving or the target is moving. This the word “Dynamic” means in a trading system–Either your data is static and the strategy loops for each data, or your strategy keeps passive and is triggered by the continuous coming data at every moment. For most of the trading platforms, they are the latter. By some means they have to be the latter since this is how data flows in live trading. However in backtests we prefer to the former one. A typical example is that we put those historical data in Excel and loop our strategies for each or a series of data, to gain the PnL from results then make judgements about strategies. Why would we use two different ideas in backtesting and live trading? It is not hard to understand because that is the way how humans regard histories–Stay in current trying to predict the future with knownledges about the past. The question is, what is the differences between static backtesting and real time trading? I hope my answer could offer a methodological perspective in explaining why good performed strategy in backtest fails in live trading. </p>
+<h3 id="Fixed-Data-and-Flowing-Data"><a href="#Fixed-Data-and-Flowing-Data" class="headerlink" title="Fixed Data and Flowing Data"></a>Fixed Data and Flowing Data</h3><p>For static backtesting we shall have a start point and an end point, it is convenient to obtain historical informations since a specific data will correspond to a fix position in our set. For example if our backtest starts at 2017-01-01, 2017-01-02’s data must be in the second row of the line (regardless of closed market). However in a live market, obtaining history data would be a bit harder. Assume we stand at 2017-01-03, 2017-01-02’s data would one daily bar before. If date moves to 2017-01-04, it becomes two bars. In this condition we have to first calculate a dynamic time span and then traceback that span, which influences the way we look history. This problem affects not only on date time issues, but also on safety control–Imagine in a high frequence trading market, if data comes faster than the time of calculating the time span (this is possible since in some markets closed price is not sampled by a fixed time, it is created whenever a trade happens. If two orders are executed in a very close time, your calculation may be slower than that), the method here would be a serious fault.</p>
+<h3 id="Statistics-Problem"><a href="#Statistics-Problem" class="headerlink" title="Statistics Problem"></a>Statistics Problem</h3><p>In backtesting we are facing an all known data set, it would be decent to do regressions, analyze the distributions or find remarkable statistics. The result of its trendency prediction would be clear as well as convincible. In a real time system things work different. Take regression for example, the up-coming data has the ability to totally change your previous regression and even worse, you cannot define them as outliers. Statistic samples would be trapped in limited known informations.</p>
+<h3 id="Loop-Problem"><a href="#Loop-Problem" class="headerlink" title="Loop Problem"></a>Loop Problem</h3><p>In trading strategy’s realization, we often generate loops to cycle our positions or data, for many cases items in loop need to be removed or added. This affects the range of our loop when data is updated. Example: Loop from 0 to 10, when loop = 3 an asset previous in loop = 6, is removed from our position thus the range becomes 0 to 9. This loop probably crashes when counts to 6. This idea is the same for increasing ranged loop. To solve this problem we need to use a combination of backward loop (downto loop, counter -1 for each cycle) and forward loop (counter +1) and distinguish whether the range is increasing or decreasing. This problem affects no more in a static backtest, for it wouldn’t have an update in your loops.</p>
+<h3 id="Practical-Problem"><a href="#Practical-Problem" class="headerlink" title="Practical Problem"></a>Practical Problem</h3><p>Under this section we can find tons of real life problems of a backtested strategy. How to deal with an order if it is rejected by the Exchange, re-order, cancel or makeup? How to deal with shares split or reverse split? If three strategies ordered one same stock, how to distinguish them in your positions?… Countless problems will appear even for one simplest idea when it turns to be a mature excutable strategy. Thus, I strongly suggest you to backtest your ideas in a simulated real time environment. Many platforms have this feature: Quantopian, Interactive Brokers, TradeStation, all of them are better than Excel when deal with backtesting.</p>
+<h3 id="Things-to-Notice"><a href="#Things-to-Notice" class="headerlink" title="Things to Notice"></a>Things to Notice</h3><p>Though those differences may not lead to an direct impact on the result, they do cause a different stream of thoughts. Static backtesting is in view of the whole data set, programming could be both backward and forward (often forward due to intuition). Real time backtesting is in a backward point of view since the newest data would be continuously replaced. I hope this page provides a insipirable thinking.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/MeasureTheoryNote1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Measure Theory Notes-1 测度论笔记-1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/stairwaytoquanttrading1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Stairway to Quant Trading - Part 1&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-gehuazhang-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/stairwaytoquanttrading2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

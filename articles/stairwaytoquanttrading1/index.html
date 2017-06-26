@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5557444925158715",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <meta charset="utf-8">
+  
+  <title>Stairway to Quant Trading - Part 1 - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A Glimpse of Trading Platform Stream">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stairway to Quant Trading - Part 1">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="A Glimpse of Trading Platform Stream">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/1.jpg">
+<meta property="og:updated_time" content="2017-06-26T04:00:09.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stairway to Quant Trading - Part 1">
+<meta name="twitter:description" content="A Glimpse of Trading Platform Stream">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/1.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-stairwaytoquanttrading1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Stairway to Quant Trading - Part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/stairwaytoquanttrading1/" class="article-date">
+  <time datetime="2017-03-28T06:29:02.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stairway-to-quant-trading/">Stairway to Quant Trading</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/articles/stairwaytoquanttrading1/1.jpg" alt=""></p>
+<p> A Glimpse of Trading Platform Stream</p>
+<a id="more"></a>
+<p> Recently I’m using TradeStation to build trading Apps for customers. Often their demands are simple–A batch of stocks’ execution, VWAP execution or option trading monitoring. Somehow in this process, I learned how a systematic trading platform should be like and how the orders flow into Market and being executed. However, a more detailed and deeper inspection is needed to understand the whole system (exact the thing I want to figure), for example, how an order, starting at my PC, moving through the Exchange and being dealt by the otherside; how to get access to the Data directly from the Exchange. I would try to work out that later (hope in Part 2).</p>
+<p>Let me first use the Math idea to clarify how a trading system works. Any Mathematical concept should be consist of three parts: a SPACE, OBJECTs in this space and objects MOVEMENTs. Same for a trading platform, it should be consist of a FRAME, MODULEs in this frame and modules’ movements, considered as TRIGGERs. A frame is the basement of our platform, including providing data, I/O control, printing log and such. A module is the control part, works functionally in our project, more like a component which helps us to achieve some specific goals. Trigger is the most important thing, it has the similair outlook (syntax frame) as a module, but its major task is to tell system what to do when something happens.</p>
+<h3 id="FRAME"><a href="#FRAME" class="headerlink" title="FRAME"></a>FRAME</h3><p>A trading system must have the following characters:</p>
+<ul>
+<li>Event-Driven</li>
+<li>Dynamic/Real-Time</li>
+<li>Multi-Threading</li>
+</ul>
+<p>The first two characters seem contradictory, one focuses on event and another is time. Indeed our system could be more isolated–Fully event-driven (Only execute strategies when we receive another event’s signal), could also be a combination of time and event–For each specific time interval we execute some specifc things.<br>Supporting Multi-Threading is necessary for a good trading system. For most of the time, our strategy will do different executions to one same data or whatever, thus we need to split our data flow into several parts and deal each of them seperately.</p>
+<h3 id="MODULE"><a href="#MODULE" class="headerlink" title="MODULE"></a>MODULE</h3><p>Each module is a function, do their own part of job in the system.</p>
+<ul>
+<li>System Control Module</li>
+<li>Calculation Module</li>
+<li>GUI Module</li>
+</ul>
+<p>For system control module, it should include the function that we need to call to get price info, order info or execute our orders. TradeStation provides the following modules (frequently used)： PriceSeries (history price data), OrdersProvider (check the status of current filled/unfilled orders), OrdersTickets (send out execution request), AccountsProvider (decide the account used for trading), QuotesProvider (return the current quote for selected stocks). Each of them controls one part of our whole system and they are pre-writen, packaged modules.<br>Calculation Module is the body of our strategy, in there we put our ideas and call system control modules to help them work functionally.<br>GUI module may be used to interact with traders, not necessarily needed if we can log.</p>
+<h3 id="TRIGGER"><a href="#TRIGGER" class="headerlink" title="TRIGGER"></a>TRIGGER</h3><p>Triggers are the core part of doing event-driven trading.</p>
+<ul>
+<li>System Trigger</li>
+<li>Strategic Trigger</li>
+</ul>
+<p>System Trigger is provided in TradeStation, to help traders execute strategies and more importantly, do event-driven trading. For example, each time you send an ord to server, OrdersProvider_Update will be triggered, and in that module/function, you can tell computers to do things, print out the orders information or others.<br>Strategic Trigger can be understand as a intrinsic part of the strategies. For most strategies, we have to tell our system what to do, when to do and how to do, strategic trigger is used to dectect the condition satisifying our demands, then being triggered by that condition and run some codes.</p>
+<h3 id="Things-to-Notice"><a href="#Things-to-Notice" class="headerlink" title="Things to Notice"></a>Things to Notice</h3><ul>
+<li>Module</li>
+</ul>
+<p>Using modules to build trading platforms has many advantages, it simplifies your code and allows a better expansibility. Suppose you are building a new system which has many similar features as an old one, you only need to replace few modules to finish. Imagine you are in a maze and for every step you move, bricks or walls would be added to that maze. The more you move, the harder to escape. This is pretty much like building a platform. When you code for thousands of lines, it becomes hard to keep a clear mind and much harder to lookback thinking about some modifications. Using modules will help you quickly find the target. For example in a trading system we need to load the quotations, excute strategies to filter stocks and then, we apply trading algorithms, send out orders. If the order type is “market price”, our system will trace back to get the quotations. Suppose now you want to use “limited price” for orders, you wouldn’t like to update the whole system, instead you just update the first module, which greatly reduces your work.</p>
+<ul>
+<li>Coding Safely</li>
+</ul>
+<p>So far my feelings about building a trading platform that programming is not the hard part, safety is the major issue. You are not only asked to achieve goals, but also to achieve them in a stable and safety way, which requires a lot of control. For insatance, if all of your orders were correct except one missing the trading volume, your system should be able to detect that before it was send out.</p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/stairwaytoquanttrading2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Stairway to Quant Trading - Part 2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/Hello/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello Everyone!&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-gehuazhang-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/stairwaytoquanttrading1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

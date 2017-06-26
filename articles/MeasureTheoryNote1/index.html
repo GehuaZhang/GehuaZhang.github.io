@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5557444925158715",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <meta charset="utf-8">
+  
+  <title>Measure Theory Notes-1 测度论笔记-1 - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="测度论笔记 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Measure Theory Notes-1 测度论笔记-1">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/MeasureTheoryNote1/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="测度论笔记 1">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/MeasureTheoryNote1/measure.jpg">
+<meta property="og:updated_time" content="2017-06-10T06:32:57.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Measure Theory Notes-1 测度论笔记-1">
+<meta name="twitter:description" content="测度论笔记 1">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/MeasureTheoryNote1/measure.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-MeasureTheoryNote1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Measure Theory Notes-1 测度论笔记-1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/MeasureTheoryNote1/" class="article-date">
+  <time datetime="2017-05-22T16:00:00.000Z" itemprop="datePublished">2017-05-22</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mathematics/">Mathematics</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/articles/MeasureTheoryNote1/measure.jpg" alt=""></p>
+<h2 id="测度论笔记-1"><a href="#测度论笔记-1" class="headerlink" title="测度论笔记 1"></a>测度论笔记 1</h2><a id="more"></a>
+<h3 id="1-什么是概率"><a href="#1-什么是概率" class="headerlink" title="1. 什么是概率"></a>1. 什么是概率</h3><p>提到概率, 我们的直觉会告诉我们这就是一个试验结果发生的可能性. 如果要具体算一算的话, 那么我们会用某一结果出现的次数去除以整体试验的次数, 来算得大概的概率. 但是这样的概率论是很难以回答下面的一些问题的:</p>
+<ul>
+<li>$X \in [0,1], X$ 是有理数的概率? $X^n$ 是有理数的概率?</li>
+<li>$X \in \mathbb{R}, X$ 能表现出代数性(algebraic, 即能作为一个系数是整数的多项式的解)的概率?</li>
+<li>一个很著名的悖论: 一个实心球仅仅通过旋转和平移, 就能分成两个半径和之前一样的完整的球. <a href="https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox" target="_blank" rel="external">Banach–Tarski Paradox</a></li>
+</ul>
+<p>其实对于很多事件, 我们是找不到它们发生的概率的, 更重要的是, 概率在很多地方是没有定义的, 也是没有意义的. 在数学上我们可以证明这个结论 <a href="#proof-111">Proof_1.1.1</a>, 可以说明在 $[0,1]$ 区间上有很多点我们都不能找到概率的定义. 那么为了研究概率, 我们就必须规定在什么情况下我们谈论概率是有意义的, 什么情况下试验结果是可以被测量的, 也就是测度论第一个要解决的问题, 哪些集合可测(measurable). 这也是之后我们使用概率的时候需要注意的–讨论概率之前先看这个空间可测吗. </p>
+<p>不光是概率有测度, 测度是很多数学概念的根基. 比如我们常用的雷曼积分就是基于 Jordan measure, 需要我们的函数在满足 Jordan measure的条件下才能使用雷曼积分, 而在其他的积分办法中我们就会用到其他的测度.</p>
+<p>我们规定, 概率空间probability space是由三个元素构成, 我们叫它们probability triples(概率三兄弟?)  $ (\Omega,\mathcal{F},P) $ : </p>
+<ul>
+<li>$ \Omega $ 代表了样本空间, 它必须是非空的, 是我们实验所有可能的结果组成的集合. 如果对一个均匀分布uniform distribution来说, 我们常常取 $ \Omega $ 为 $ [0,1] $ 这样一个实数集合. </li>
+<li>$ \mathcal{F} $ 就是 $ \sigma–algebra $ , 关于 $ \sigma–algebra $ 我们暂时可以理解称就是一个集合, 这个集合是样本空间 $ \Omega $ 上的一个子集，在该子集上所有的集合都是可测的(后面有对可测的解释).</li>
+<li>$ P $ 代表的就是概率测度probability measure, 其实就是一个映射, 通过 $ P $ 我们就能把 $ \mathcal{F} $ 上面的元素一一映射到实数轴 $ [0,1] $ 上. 我们常说的事件发生的概率 $ P(A)=0.5 $ 也就是这样一种映射, 把事件结果映射到是数轴上.</li>
+</ul>
+<p>明白了对概率的定义之后, 我们就需要规定在一个区间 $[0,1]$ 的哪个部分是可测的. 下面我们分为两个部分来学习测度论, 首先是空间集合部分, 然后是概率测度部分, 最后我们把它们统一起来.</p>
+<h2 id="I-集合论-Set-Theory"><a href="#I-集合论-Set-Theory" class="headerlink" title="I. 集合论 Set Theory"></a>I. 集合论 Set Theory</h2><h3 id="2-什么是algebra"><a href="#2-什么是algebra" class="headerlink" title="2. 什么是algebra"></a>2. 什么是algebra</h3><p>Algebra有很多不同的意思, 在测度论中我们一般是指符合这样条件的一个集合:</p>
+<ul>
+<li>包含  $ \emptyset $  和  $ \Omega $ </li>
+<li>$A_{i} \in \mathcal{A} \Rightarrow A^{c} \in \mathcal{A}$ 它的补集是闭合的 Closed under complements</li>
+<li>$A_{i} \in \mathcal{A} \Rightarrow A_{1}\cup A_{2}\cup A_{3}\dots \in \mathcal{A}$<br>对它的子集来说, 有限次的交集和并集也是闭合的 Closed under finite unions and intersections </li>
+</ul>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>闭合的意思在这里并不是指它是一个闭集如$[0,1]$, 而是指对它进行操作之后它依然属于这个原始的集合: 如果$a \in X \Rightarrow a^{c} \in X$, 我们就说这个集合$a$取了补集之后是闭合的, 也可以称为封闭的.</li>
+<li>我们这里的algebra是针对概率空间来说的, 当上面条件满足的时候, 我们说这是一个over  $ \Omega $  的algebra.</li>
+<li>其实后两个条件可以综合为一个:  $ \forall A,B \in \mathcal{A} \Rightarrow A\setminus B \in \mathcal{A}  $ , 那么 $ \mathcal{A} $ 就可以叫做algebra. 我们形象地把  $ A\setminus B $  称为set difference, 也可以写作 $A - B$ 那么这个性质我们就可以称为 closed under set difference. 这也是区分algebra和semi-algebra的一个重要性质.</li>
+</ul>
+<p>一句话总结就是, 我们对algebra的有限次操作(取补集并集交集)之后我们得到的集合都能属于它自己(closed under all finite set operations), 这样的集合就叫algebra.</p>
+<h3 id="3-什么是semi-algebra"><a href="#3-什么是semi-algebra" class="headerlink" title="3. 什么是semi-algebra"></a>3. 什么是semi-algebra</h3><p>我们规定semi-algebra是这样一个集合:</p>
+<ul>
+<li>对它的子集来说, 有限次的交集是闭合的 Closed under finite unions</li>
+<li>$\forall A,B \in \mathcal{S}, \exists C_{i} \subseteq \mathcal{S}, \text{C is pairwsie-disjoint such that } A \setminus B= \bigcup_{i=1}^{n}C_{i}$  对它的子集来说, 子集的补集可以写成它的其他独立的子集的有限次并集. </li>
+</ul>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>pairwise disjoint指的是对任意两个集合来说, 他们没有任何相交. 强调pairwise disjoint的原因是为了排除更多集合相交的情况. 举例来说, 现在有一个集合  $  \{\{1,2\},\{2,3\},\{1,3\} \}  $  对这个集合里面的三个子集来说, 他们两两有交点, 但是对整体三个来说它们并没有交点, 所以它们不是pairwise disjoint的.</li>
+<li>semi-algebra不一定是包含 $\Omega$ 的, 假设这样一个集合 $\{\emptyset, A, A^{c} \}$, 明显它是semi-algebra, 但是它不包含 $\Omega$.</li>
+<li>我们发现semi-algebra的第三个性质其实是和algebra有所不同, algebra是closed under set difference, semi-algebra是 <em>semi</em> closed under set difference. 那么我们如何看待这个semi closed的条件呢? 举例来说: 假设 $ \mathcal{S} $ 是一个实数上的algebra, 如果 $ A=(0,10), B=(3,7) $ , 那么 $ A\setminus B = (0,3)\cup (7,10) $ . 我们把 $ (0,3) $ 叫做 $ C_1 $ ,  $ (7,10) $ 叫做 $ C_2 $ ,  $ C_1 \cup C_2 = C $ , 那么 $ A\setminus B = C $ , 但是明显 $ C $ 不属于 $ \mathcal{S} $ 因为 $ C $ 并不是一个interval. 这时我们只能把 $ C $ 看做是 $ \mathcal{S} $ 下面两个pairwise disjoint的集合 $ C_1\cup C_2 $ 的子集, 不能把 $ C $ 直接看做是 $ \mathcal{S} $ 的元素. 这个就是为什么我们要叫它semi-algebra. 所以区分algebra和semi-algebra就是看set difference.</li>
+</ul>
+<h3 id="4-什么是-sigma-algebra"><a href="#4-什么是-sigma-algebra" class="headerlink" title="4. 什么是 $\sigma-$algebra"></a>4. 什么是 $\sigma-$algebra</h3><p>接下来我们的任务就是希望通过一种类似的方式来找到这样一个集合, 在这个集合里我们的元素都是可测的, 我们就把它叫做 $\sigma-$algebra. 它满足这样一些性质: </p>
+<ul>
+<li>包含  $ \emptyset $  和  $ \Omega $ </li>
+<li>$A_{i} \in \mathcal{A} \Rightarrow A^{c} \in \mathcal{A}$ 补集是闭合的 Closed under complements</li>
+<li>$ A_{i} \in \mathcal{A} \Rightarrow \cup_{i=1}^{\infty} A_{i} \in \mathcal{A}$ 我们称作 $\mathcal{A}$ is closed under countable unions.</li>
+</ul>
+<p>那么$\mathcal{A}$ 就是 $\sigma-$algebra. </p>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>Countable可以是在无限的情况下, 通常我们分为 finity, countable infinity, uncountable infinity. 我们只要求对countable的unions都成立, 无论infinity与否.</li>
+<li>观察 $\sigma-$algebra和algebra的性质我们可以看出, 它们只有第三点是不一样的. algebra要求的是finity union,  $\sigma-$algebra 要求的是countable union, 我们如何去理解它们的区别呢? 举这样一个例子, 这个集合是algebra但是不是 $\sigma-$algebra: <a href="#proof-151">Proof_1.5.1</a>. 这个例子就说明了finity和countable的区别.</li>
+<li>我们之后会从这些性质里推导出$\sigma-$algebra是可测的. </li>
+</ul>
+<h3 id="5-Algebra-semi-algebra-与-sigma-algebra关系"><a href="#5-Algebra-semi-algebra-与-sigma-algebra关系" class="headerlink" title="5. Algebra, semi-algebra 与 $\sigma-$algebra关系"></a>5. Algebra, semi-algebra 与 $\sigma-$algebra关系</h3><ul>
+<li>如前面提到过的, 如果$\mathcal{A}$是algebra或者 $\sigma-$algebra, 那么 $\Omega \in \mathcal{A}$, 但是这一点对semi-algebra不一定成立.</li>
+<li>是semi-algebra的集合不一定是algebra, 也正如上面我们在semi-algebra处举的例子.</li>
+<li>是algebra的集合不一定是 $\sigma-$algebra, 正如之前的$\sigma-$algebra例子.</li>
+<li>我们可以从semi-algebra产生出一个algebra: semi-aglebra是基于countable来讨论的, 那么它当然包括了countable finity和countable infinity, 然而algebra的条件是只能有finity, 那么很简单, 我们给semi-algebra加上finity的条件就好: if $S$ is semi-algebra, $\{ \text{finite disjoint unions of sets in } S\}$ is an algebra.</li>
+<li>如果我们要在$\sigma-$algebra上定义概率论, 从这里我们就可以看到其实我们的一个想法是把概率论拓展到countable的空间上去.</li>
+</ul>
+<h3 id="6-Borel-sigma-algebra"><a href="#6-Borel-sigma-algebra" class="headerlink" title="6. Borel $\sigma-$algebra"></a>6. Borel $\sigma-$algebra</h3><p>在我们定义了$\sigma-$algebra之后, 看上去很多集合都能满足$\sigma-$algebra的定义. 确实如此, 但是我们并不需要在每一个$\sigma-$algebra上都定义我们的概率论, 那么我们就希望去找最小的一个$\sigma-$algebra. 我们可以证明这样一个最小$\sigma-$algebra的存在且唯一. 我们把在实数轴上所有区间以及它们的 <strong>有限次</strong> 并集生成的$\sigma-$algebra叫做 <strong>Borel $\sigma-$algebra</strong>. “生成”这个词的意思是, 如果一个唯一的最小$\sigma-$algebra集合包含了集合$X$, 那么我们称为$X$生成了一个$\sigma-$algebra, 记作$\sigma(X)$, 这个$\sigma-$algebra我们记为$\mathcal{B}$, $\mathcal{B}$中的元素就叫做 <strong>Borel sets</strong>.</p>
+<h2 id="II-概率测度"><a href="#II-概率测度" class="headerlink" title="II. 概率测度"></a>II. 概率测度</h2><h3 id="7-定义概率测度"><a href="#7-定义概率测度" class="headerlink" title="7. 定义概率测度"></a>7. 定义概率测度</h3><p>在定义概率测度(probability measure)之前, 我们要先定义测度(measure). 如section 1 里面的 $P$ 一样, 测度就是一个函数, 而这个函数的作用就是把一个class里面的元素映射到实数轴上, 数学的表示就是: For a class $\mathcal{A}$, A function $\mu$ is defined: $\mathcal{A} \rightarrow \mathbb{R} = [-\infty, +\infty]$. 我们还要对这个函数加上一些条件让它变为一个测度: </p>
+<ul>
+<li>$\mu$ is nonnegative, i.e., $\forall x \in \mathcal{A}, \mu(x) \ge 0$</li>
+<li>$\mu$ is $\sigma$-additive.</li>
+</ul>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>$\sigma$-additive的概念就是相对于普通的additive来说的. 对于普通的additive, 我们有: $\mu(\sum_{i=1}^{n} A_{i}) = \sum_{i=1}^{n} \mu (A_{i})$. 对于$\sigma$-additive, 按照之前我们对$\sigma$的一种直观理解, 就是把countable finity变成了只有countable, 那么这里已经是countable finity了, 我们就可以理解为$\sigma$让我们拓展到了countable infinity. 所以$\sigma$-additive是: $\mu(\sum_{i=1}^{\infty} A_{i}) = \sum_{i=1}^{\infty} \mu (A_{i})$</li>
+</ul>
+<p>既然我们有了measure, 我们就来定义probability measure. 我们只用给measure再加上一个条件就变成了probability measure: $\mu(\Omega) = 1$. 既然都叫probability measure了, 我们就用字母$P$表示吧. 现在我们有:</p>
+<ul>
+<li>$0 \le P(A) \le 1$</li>
+<li>$P(\Omega) = 1$</li>
+<li>$P(\sum_{1}^{\infty} \mu (A_{n})) = \sum_{1}^{\infty} P (A_{n})$</li>
+</ul>
+<p>当然它还有一些其他的性质, 比如单调, 连续之类, 就不写在这里了.</p>
+<p>那么是不是定义了probability measure我们就可以衡量取到一个数或者一个区间的概率了呢? 还是不行的. 试想我们最开始提出的那个问题, 在$[0,1]$上取到有理数的概率, 我们仅仅依靠这个概率测度还是不够的. 那么我们就需要外侧度Outer measure.</p>
+<h3 id="8-外测度Outer-measure"><a href="#8-外测度Outer-measure" class="headerlink" title="8. 外测度Outer measure"></a>8. 外测度Outer measure</h3><p>外测度是其实是一个迂回战术: 如果我们要求取到一个数的概率, 我们不直接去求这个概率, 而是我们先构造一个区间, 这个区间包含了这个数, 然后我们求取到这个区间的概率, 然后我们在让这个区间取得越小越好, 那么我们就近似的得到了取得这个数的概率. 显然如果我们把区间划分的越细, 那么我们这个区间的range就会越小, 最后求得的取到这个数的概率就越准确. 但是我们又不可能让区间无限取小下去, 不然我们的计算又是没有意义的了, 那么这种细分方法一定有个下限. 这个下限我们就称为外测度. 我们这样定义外测度:<br>$$<br>P^{*} (A) = \inf_{A \subseteq \bigcup A_{i}} \sum P(A_{i})<br>$$<br>找点$A$的外测度就是先找到点$A$附近的一圈 $A_{i}$, 要满足 $A_{i}$ 的并集包含了 $A$, 然后我们去求到这些点 $A_{i}$ 的概率, 并且我们让 $A_{i}$ 的范围越小越好, 那么我们就取一个infimum. </p>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>我们并不要求 $P^{*}$ 本身也是一个测度, 我们只要求 $P$ 是测度, 通过 $P$ 构造的 $P^{*}$ 并没有这个要求.</li>
+</ul>
+<p>外测度也有一些性质:</p>
+<ul>
+<li>$P^{*}(\emptyset) = 0$</li>
+<li>Monotonicity: $A \subset B \Rightarrow P^{*}(A) \le P^{*}(B)$</li>
+<li>$\sigma$-subadditivity, 对于countable infinity来说: $P^{*}( \bigcup^{\infty} A_{i}) \le \sum^{\infty} P^{*}(A_{i})$</li>
+</ul>
+<p>既然我们有了测度的规范定义, 而且是比以前的概率测度 $P$ 更加广泛的一个定义, 我们也需要重新定义一个空间, 在这个空间里我们使用新的概率测度 $P^{*}$ 能够测量</p>
+<h3 id="9-可测集"><a href="#9-可测集" class="headerlink" title="9. 可测集"></a>9. 可测集</h3><p>如果在一个集合上我们有一个外侧度, 这个外测度和这个集合的元素如果能满足一定的条件, 那么我们就叫这个集合是可测集. 这个条件是:<br>$$<br>\mathcal{M} = \{A \subseteq \Omega | \text{ for any E} \subseteq \Omega \text{ we have: } P^{*}(A \cap E) + P^{*}(A^{c} \cap E) = P^{*}(E) \}<br>$$ </p>
+<p>一旦定义了可测集, 那么可以说我们的任务解决了一大半. 我们现在知道了在什么情况下我们可以用什么办法去计算概率了. 那么我们开始提到的algebra和概率测度有什么联系呢?</p>
+<h2 id="III-联系"><a href="#III-联系" class="headerlink" title="III. 联系"></a>III. 联系</h2><h3 id="10-联系"><a href="#10-联系" class="headerlink" title="10. 联系"></a>10. 联系</h3><p>现在我们把概率测度和$\sigma$-algebra联系起来, 它们其实有这样的关系:</p>
+<p><strong>所有的$P^{*}(A)$的可测集组成的类就是$\sigma$-algebra.</strong></p>
+<p>这句话反过来说就是在 $\sigma$-algebra上我们用外测度都是可测的.</p>
+<p><a href="https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_extension_theorem" target="_blank" rel="external">Caratheodory Extension Theorem</a> 告诉我们:</p>
+<ul>
+<li>定义在semi-algebra上的测度 $P$, 在$\sigma-$algebra上存在外测度 $P^{*}$(存在扩张Extension).</li>
+<li>如果这个测度 $P$ 是 $\sigma$-finite的, 那么外测度 $P^{*}$ 唯一(Extension唯一).</li>
+</ul>
+<p><em><strong>Notes</strong></em>: </p>
+<ul>
+<li>$\sigma$-finite是指$\exists A_{n} \subset \mathcal{A}, \text{such that } \bigcup^{\infty}A_{n} = \Omega \text{ and } |\mu(A_{n})| \lt \infty$, 我们就叫 $\mu$ 是 $\sigma$-finite.</li>
+<li>如果现在我们假设semi-algebra $S$ 上有个集合 $A$, 那么这个 $S$ 生成的 $\sigma-$algebra $\sigma(S)$上就会存在一个集合 $B$ 满足 $A \subset B, P^{*}(A)=P^{*}(B), \forall C \subset B-A \Rightarrow P^{*}(C)= 0$, 我们也把$B$ 叫做 $A$ 的一个measurable cover.</li>
+</ul>
+<h3 id="11-在-sigma-algebra上构造测度"><a href="#11-在-sigma-algebra上构造测度" class="headerlink" title="11. 在$\sigma$-algebra上构造测度"></a>11. 在$\sigma$-algebra上构造测度</h3><ul>
+<li>先定义semi-algebra $S$, 再在其上扩展一个$\sigma$-algebra $\sigma(S)$.</li>
+<li>在semi-algebra上定义一个函数/映射 $\mu: S \rightarrow \mathbb{R}$, 那么 $\mu$ 就是semi-algebra上的测度.</li>
+<li>通过Extension Theory把 $\mu$ 扩展到 $\sigma$-algebra上.</li>
+</ul>
+<p><strong>这大概就是一些学习测度论最开始的一些笔记, 而且也非常不完整, 很多东西我跳过了, 自己也不太看得懂, 所以可能漏洞百出. 之后的笔记可能是一些对random variable的定义, 积分的定义之类. 就我的感受来说, 测度论还是对思维的影响非常大, 这种从finity到countable infinity的转变, 其实说明了我们很多时候在考虑试验结果时, 不应该去再一个一个的数试验发生的次数, 也不是一个单个的试验结果, 而是把它们想成一个一个的集合, 再去对集合进行处理.</strong></p>
+<h3 id="0-Proofs"><a href="#0-Proofs" class="headerlink" title="0. Proofs"></a>0. Proofs</h3><h4 id="Proof-1-1-1"><a href="#Proof-1-1-1" class="headerlink" title="Proof 1.1.1"></a>Proof 1.1.1</h4><p>为了方便起见, 我们都假设试验空间是实数轴 $[0,1]$ 之间的均匀分布, 任何超过这个范围的数或者集合, 我们都可以把它shift到这个区间来(就是加减一个数让给它变到 $[0,1]$ 之间来), 且shift前后它们的概率相等. 不光如此, 对于相互独立的集合 $A_1, A_2, A_3 \dots $ 我们有 $P(A_1 \cup A_2 \cup A_3 \dots) =  P(A_1) + P(A_2) + P(A_3) +\dots$<br>现在我们很巧妙地定义一个等价关系 $x\sim y \Leftrightarrow x-y \text{ is rational }$, 这样 $[0,1]$ 就被划分成了2个等价的独立的集合. 那么每次我们分别从两个集合里各自取一个元素出来, 它们也是互相独立的. 我们就可以把它们全部加起来, 总共的概率是等于1. 又因为它们满足这样一个性质, 加减一个有理数之后(就是shift一个有理数的量), 它们的概率不变, 那我们把他们全部shift到点$H$上去. 这就造成了一个悖论: $\sum P(H) = 1$. 任何数的无穷次相加的值无外乎 $0, \infty, -\infty$, 而我们的结论却是等于1.<br><a href="#1_1">back</a></p>
+<h4 id="Proof-1-5-1"><a href="#Proof-1-5-1" class="headerlink" title="Proof 1.5.1"></a>Proof 1.5.1</h4><p>假设这样一个集合$S = \bigcup_{n=1}^{\infty} (a_{n},b_{n}], \text{ for } a_{n} \le b_{n}$. 我们举一个特例: $S = \bigcup_{n=1}^{\infty} (0,1-\frac{1}{n}]$. 如果对于$S$中任意元素来说, 或者是它们的有限次并集来说, 我们最后得到的集合的形式也是前开后闭$(m,n]$这样的形式, 但是它们的无限次并集就会让我们得到$(0,1)$, 而这个元素是不存在与$S$中的. 那么也就是说对$S$的finity次取并集, 我们得到的集合仍然在$S$中, 那么它属于algebra; 但是对$S$的countable次取并集, 我们得到的集合却不在$S$中, 那么它是不属于semi-algebra的.<br><a href="#4-sigma-algebra">back</a></p>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/RaspberryTutorial/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Raspberry Pi 3 Setup
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/stairwaytoquanttrading2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Stairway to Quant Trading - Part 2&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-gehuazhang-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/MeasureTheoryNote1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
