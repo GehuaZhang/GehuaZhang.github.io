@@ -11,12 +11,10 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="A Glimpse of Trading Platform Stream">
-<meta property="og:image" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/1.jpg">
-<meta property="og:updated_time" content="2017-06-26T04:00:09.190Z">
+<meta property="og:updated_time" content="2017-08-14T08:02:25.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stairway to Quant Trading - Part 1">
 <meta name="twitter:description" content="A Glimpse of Trading Platform Stream">
-<meta name="twitter:image" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/1.jpg">
   
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
@@ -71,9 +69,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/articles/stairwaytoquanttrading1/1.jpg" alt=""></p>
-<p> A Glimpse of Trading Platform Stream</p>
-<a id="more"></a>
+        <h4 id="A-Glimpse-of-Trading-Platform-Stream"><a href="#A-Glimpse-of-Trading-Platform-Stream" class="headerlink" title="A Glimpse of Trading Platform Stream"></a>A Glimpse of Trading Platform Stream</h4><a id="more"></a>
 <p> Recently I’m using TradeStation to build trading Apps for customers. Often their demands are simple–A batch of stocks’ execution, VWAP execution or option trading monitoring. Somehow in this process, I learned how a systematic trading platform should be like and how the orders flow into Market and being executed. However, a more detailed and deeper inspection is needed to understand the whole system (exact the thing I want to figure), for example, how an order, starting at my PC, moving through the Exchange and being dealt by the otherside; how to get access to the Data directly from the Exchange. I would try to work out that later (hope in Part 2).</p>
 <p>Let me first use the Math idea to clarify how a trading system works. Any Mathematical concept should be consist of three parts: a SPACE, OBJECTs in this space and objects MOVEMENTs. Same for a trading platform, it should be consist of a FRAME, MODULEs in this frame and modules’ movements, considered as TRIGGERs. A frame is the basement of our platform, including providing data, I/O control, printing log and such. A module is the control part, works functionally in our project, more like a component which helps us to achieve some specific goals. Trigger is the most important thing, it has the similair outlook (syntax frame) as a module, but its major task is to tell system what to do when something happens.</p>
 <h3 id="FRAME"><a href="#FRAME" class="headerlink" title="FRAME"></a>FRAME</h3><p>A trading system must have the following characters:</p>
