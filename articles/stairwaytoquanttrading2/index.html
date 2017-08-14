@@ -1,52 +1,75 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Stairway to Quant Trading - Part 2 | Gehua Zhang&#39;s Blog</title>
-  <meta name="description" content="Record your thoughts and savor them" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-
-  <meta name="generator" content="Gehua Zhang's Blog"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Stairway to Quant Trading - Part 2 - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Dynamic Trading System Programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stairway to Quant Trading - Part 2">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading2/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="Dynamic Trading System Programming">
+<meta property="og:updated_time" content="2017-08-14T08:02:20.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stairway to Quant Trading - Part 2">
+<meta name="twitter:description" content="Dynamic Trading System Programming">
   
   
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
-  
 </head>
 
-
-<body class="post-template">
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
-    <div class="vertical">
-        <div class="site-head-content inner">
-             <a class="blog-logo" href="/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
-            <h1 class="blog-title">Gehua Zhang's Blog</h1>
-            <h2 class="blog-description">Record your thoughts and savor them</h2>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
         </div>
+      </nav>
     </div>
+  </div>
 </header>
+    <section id="main" class="outer"><article id="post-stairwaytoquanttrading2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Stairway to Quant Trading - Part 2
+    </h1>
   
 
-<main class="content" role="main">
-  <article class="post">
-    <span class="post-meta">
-      <time datetime="2017-04-20T06:29:02.000Z" itemprop="datePublished">
-          2017-04-20
-      </time>
+      </header>
     
-</span>
-    <h1 class="post-title">Stairway to Quant Trading - Part 2</h1>
-    <section class="post-content">
-      <h4 id="Dynamic-Trading-System-Programming"><a href="#Dynamic-Trading-System-Programming" class="headerlink" title="Dynamic Trading System Programming"></a>Dynamic Trading System Programming</h4><a id="more"></a>
+    <div class="article-meta">
+      <a href="/articles/stairwaytoquanttrading2/" class="article-date">
+  <time datetime="2017-04-20T06:29:02.000Z" itemprop="datePublished">2017-04-20</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stairway-to-quant-trading/">Stairway to Quant Trading</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Dynamic-Trading-System-Programming"><a href="#Dynamic-Trading-System-Programming" class="headerlink" title="Dynamic Trading System Programming"></a>Dynamic Trading System Programming</h4><a id="more"></a>
 <p>To run your trading strategies in a real time environment is different from backtesting your ideas on a full set of data, though they have lots of similarities and both called “dynamic”.</p>
 <p>A simplified analogy used by the most basic Physics idea: If you have a relative movement with a target, either you are moving or the target is moving. This the word “Dynamic” means in a trading system–Either your data is static and the strategy loops for each data, or your strategy keeps passive and is triggered by the continuous coming data at every moment. For most of the trading platforms, they are the latter. By some means they have to be the latter since this is how data flows in live trading. However in backtests we prefer to the former one. A typical example is that we put those historical data in Excel and loop our strategies for each or a series of data, to gain the PnL from results then make judgements about strategies. Why would we use two different ideas in backtesting and live trading? It is not hard to understand because that is the way how humans regard histories–Stay in current trying to predict the future with knownledges about the past. The question is, what is the differences between static backtesting and real time trading? I hope my answer could offer a methodological perspective in explaining why good performed strategy in backtest fails in live trading. </p>
 <h3 id="Fixed-Data-and-Flowing-Data"><a href="#Fixed-Data-and-Flowing-Data" class="headerlink" title="Fixed Data and Flowing Data"></a>Fixed Data and Flowing Data</h3><p>For static backtesting we shall have a start point and an end point, it is convenient to obtain historical informations since a specific data will correspond to a fix position in our set. For example if our backtest starts at 2017-01-01, 2017-01-02’s data must be in the second row of the line (regardless of closed market). However in a live market, obtaining history data would be a bit harder. Assume we stand at 2017-01-03, 2017-01-02’s data would one daily bar before. If date moves to 2017-01-04, it becomes two bars. In this condition we have to first calculate a dynamic time span and then traceback that span, which influences the way we look history. This problem affects not only on date time issues, but also on safety control–Imagine in a high frequence trading market, if data comes faster than the time of calculating the time span (this is possible since in some markets closed price is not sampled by a fixed time, it is created whenever a trade happens. If two orders are executed in a very close time, your calculation may be slower than that), the method here would be a serious fault.</p>
@@ -55,84 +78,80 @@
 <h3 id="Practical-Problem"><a href="#Practical-Problem" class="headerlink" title="Practical Problem"></a>Practical Problem</h3><p>Under this section we can find tons of real life problems of a backtested strategy. How to deal with an order if it is rejected by the Exchange, re-order, cancel or makeup? How to deal with shares split or reverse split? If three strategies ordered one same stock, how to distinguish them in your positions?… Countless problems will appear even for one simplest idea when it turns to be a mature excutable strategy. Thus, I strongly suggest you to backtest your ideas in a simulated real time environment. Many platforms have this feature: Quantopian, Interactive Brokers, TradeStation, all of them are better than Excel when deal with backtesting.</p>
 <h3 id="Things-to-Notice"><a href="#Things-to-Notice" class="headerlink" title="Things to Notice"></a>Things to Notice</h3><p>Though those differences may not lead to an direct impact on the result, they do cause a different stream of thoughts. Static backtesting is in view of the whole data set, programming could be both backward and forward (often forward due to intuition). Real time backtesting is in a backward point of view since the newest data would be continuously replaced. I hope this page provides a insipirable thinking.</p>
 
-    </section>
-    <footer class="post-footer">
-      <section class="author">
-    <h4>Gehua Zhang</h4>
-    <p>A designer, developer and entrepreneur. Spends his time travelling the world with a bag of kites. Likes journalism and publishing platforms.</p>
-</section>
-      <section class="share">
-    <h4>Share this post</h4>
-    <a class="icon-twitter" href="http://twitter.com/share?url=https://gehuazhang.github.io/articles/stairwaytoquanttrading2/"
-       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-        <span class="hidden">Twitter</span>
-    </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://gehuazhang.github.io/articles/stairwaytoquanttrading2/"
-       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-        <span class="hidden">Facebook</span>
-    </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://gehuazhang.github.io/articles/stairwaytoquanttrading2/"
-       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-        <span class="hidden">Google+</span>
-    </a>
-</section>
-    </footer>
-  </article>
-  <nav class="pagination" role="pagination">
-    
-    <a class="newer-posts" href="/articles/MeasureTheoryNote1/">
-        ← Measure Theory Notes-1 测度论笔记-1
-    </a>
-    
-    <span class="page-number">•</span>
-    
-    <a class="older-posts" href="/articles/stairwaytoquanttrading1/">
-        Stairway to Quant Trading - Part 1 →
-    </a>
-    
-</nav>
-  <div id="comment" class="comments-area">
-    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
-
-    
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
     </div>
     
-</div>
-</main>
-
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/MeasureTheoryNote1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Measure Theory Notes-1 测度论笔记-1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/stairwaytoquanttrading1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Stairway to Quant Trading - Part 1&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
 
   
-<footer class="site-footer">
+</article>
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
   
-  <div class="inner">
-     <section class="copyright">All content copyright <a href="/">Gehua Zhang's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
-     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
   </div>
 </footer>
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/stairwaytoquanttrading2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="/js/index.js"></script>
-
-
-
-<script type="text/javascript">
-    var disqus_shortname = 'gehuazhangblog';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/jquery.min.js"></script>
 
 
 
-
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

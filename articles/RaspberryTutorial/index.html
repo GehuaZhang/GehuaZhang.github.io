@@ -1,52 +1,75 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Raspberry Pi 3 Setup | Gehua Zhang&#39;s Blog</title>
-  <meta name="description" content="Record your thoughts and savor them" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-
-  <meta name="generator" content="Gehua Zhang's Blog"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Raspberry Pi 3 Setup - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi 3 Setup">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/RaspberryTutorial/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
+<meta property="og:updated_time" content="2017-08-14T07:55:21.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raspberry Pi 3 Setup">
+<meta name="twitter:description" content="How to set up your Raspberry Pi 3 and remote control with SSH &amp;amp; VNC">
   
   
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
-  
 </head>
 
-
-<body class="post-template">
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
-    <div class="vertical">
-        <div class="site-head-content inner">
-             <a class="blog-logo" href="/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
-            <h1 class="blog-title">Gehua Zhang's Blog</h1>
-            <h2 class="blog-description">Record your thoughts and savor them</h2>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
         </div>
+      </nav>
     </div>
+  </div>
 </header>
+    <section id="main" class="outer"><article id="post-RaspberryTutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Raspberry Pi 3 Setup
+    </h1>
   
 
-<main class="content" role="main">
-  <article class="post">
-    <span class="post-meta">
-      <time datetime="2017-06-11T00:00:00.000Z" itemprop="datePublished">
-          2017-06-10
-      </time>
+      </header>
     
-</span>
-    <h1 class="post-title">Raspberry Pi 3 Setup</h1>
-    <section class="post-content">
-      <h4 id="How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC"><a href="#How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC" class="headerlink" title="How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC"></a>How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC</h4><a id="more"></a>
+    <div class="article-meta">
+      <a href="/articles/RaspberryTutorial/" class="article-date">
+  <time datetime="2017-06-11T00:00:00.000Z" itemprop="datePublished">2017-06-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC"><a href="#How-to-set-up-your-Raspberry-Pi-3-and-remote-control-with-SSH-amp-VNC" class="headerlink" title="How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC"></a>How to set up your Raspberry Pi 3 and remote control with SSH &amp; VNC</h4><a id="more"></a>
 <ol>
 <li>First of all, you need to connect your Raspberry Pi to a monitor, install Raspbian and configure it. After everything is done, open terminal/shell in your Pi.</li>
 </ol>
@@ -69,81 +92,81 @@
 </li>
 </ol>
 
-    </section>
-    <footer class="post-footer">
-      <section class="author">
-    <h4>Gehua Zhang</h4>
-    <p>A designer, developer and entrepreneur. Spends his time travelling the world with a bag of kites. Likes journalism and publishing platforms.</p>
-</section>
-      <section class="share">
-    <h4>Share this post</h4>
-    <a class="icon-twitter" href="http://twitter.com/share?url=https://gehuazhang.github.io/articles/RaspberryTutorial/"
-       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-        <span class="hidden">Twitter</span>
-    </a>
-    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://gehuazhang.github.io/articles/RaspberryTutorial/"
-       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-        <span class="hidden">Facebook</span>
-    </a>
-    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://gehuazhang.github.io/articles/RaspberryTutorial/"
-       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-        <span class="hidden">Google+</span>
-    </a>
-</section>
-    </footer>
-  </article>
-  <nav class="pagination" role="pagination">
-    
-    <a class="newer-posts" href="/articles/3000word/">
-        ← GRE 3000 Words App for MacOS
-    </a>
-    
-    <span class="page-number">•</span>
-    
-    <a class="older-posts" href="/articles/MeasureTheoryNote1/">
-        Measure Theory Notes-1 测度论笔记-1 →
-    </a>
-    
-</nav>
-  <div id="comment" class="comments-area">
-    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
-
-    
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
     </div>
     
-</div>
-</main>
-
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/articles/3000word/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          GRE 3000 Words App for MacOS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/articles/MeasureTheoryNote1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Measure Theory Notes-1 测度论笔记-1&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
 
   
-<footer class="site-footer">
+</article>
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
   
-  <div class="inner">
-     <section class="copyright">All content copyright <a href="/">Gehua Zhang's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
-     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
   </div>
 </footer>
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/RaspberryTutorial/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="/js/index.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 
 
-<script type="text/javascript">
-    var disqus_shortname = 'gehuazhangblog';
-
-    (function(){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -161,9 +184,5 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
 </body>
 </html>
