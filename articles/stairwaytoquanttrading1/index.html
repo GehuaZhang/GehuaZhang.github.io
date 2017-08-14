@@ -1,75 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Stairway to Quant Trading - Part 1 | Gehua Zhang&#39;s Blog</title>
+  <meta name="description" content="Record your thoughts and savor them" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Gehua Zhang's Blog"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
   
-  <title>Stairway to Quant Trading - Part 1 - Gehua Zhang&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A Glimpse of Trading Platform Stream">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Stairway to Quant Trading - Part 1">
-<meta property="og:url" content="https://gehuazhang.github.io/articles/stairwaytoquanttrading1/index.html">
-<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="A Glimpse of Trading Platform Stream">
-<meta property="og:updated_time" content="2017-08-14T08:02:25.211Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Stairway to Quant Trading - Part 1">
-<meta name="twitter:description" content="A Glimpse of Trading Platform Stream">
   
-  
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
-  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
+  
 </head>
 
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-      <a id="logo" class="logo" href="/"></a>
-      <nav id="main-nav">
-        
-      </nav>
-      <nav id="sub-nav">
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+
+<body class="post-template">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="site-head"  style="background-image: url(//blog.ghost.org/content/images/2013/Nov/cover.png)" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="//blog.ghost.org/content/images/2013/Nov/bloglogo_1-1.png" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">Gehua Zhang's Blog</h1>
+            <h2 class="blog-description">Record your thoughts and savor them</h2>
         </div>
-      </nav>
     </div>
-  </div>
 </header>
-    <section id="main" class="outer"><article id="post-stairwaytoquanttrading1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Stairway to Quant Trading - Part 1
-    </h1>
   
 
-      </header>
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2017-03-28T06:29:02.000Z" itemprop="datePublished">
+          2017-03-28
+      </time>
     
-    <div class="article-meta">
-      <a href="/articles/stairwaytoquanttrading1/" class="article-date">
-  <time datetime="2017-03-28T06:29:02.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/stairway-to-quant-trading/">Stairway to Quant Trading</a>
-  </div>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="A-Glimpse-of-Trading-Platform-Stream"><a href="#A-Glimpse-of-Trading-Platform-Stream" class="headerlink" title="A Glimpse of Trading Platform Stream"></a>A Glimpse of Trading Platform Stream</h4><a id="more"></a>
+</span>
+    <h1 class="post-title">Stairway to Quant Trading - Part 1</h1>
+    <section class="post-content">
+      <h4 id="A-Glimpse-of-Trading-Platform-Stream"><a href="#A-Glimpse-of-Trading-Platform-Stream" class="headerlink" title="A Glimpse of Trading Platform Stream"></a>A Glimpse of Trading Platform Stream</h4><a id="more"></a>
 <p> Recently I’m using TradeStation to build trading Apps for customers. Often their demands are simple–A batch of stocks’ execution, VWAP execution or option trading monitoring. Somehow in this process, I learned how a systematic trading platform should be like and how the orders flow into Market and being executed. However, a more detailed and deeper inspection is needed to understand the whole system (exact the thing I want to figure), for example, how an order, starting at my PC, moving through the Exchange and being dealt by the otherside; how to get access to the Data directly from the Exchange. I would try to work out that later (hope in Part 2).</p>
 <p>Let me first use the Math idea to clarify how a trading system works. Any Mathematical concept should be consist of three parts: a SPACE, OBJECTs in this space and objects MOVEMENTs. Same for a trading platform, it should be consist of a FRAME, MODULEs in this frame and modules’ movements, considered as TRIGGERs. A frame is the basement of our platform, including providing data, I/O control, printing log and such. A module is the control part, works functionally in our project, more like a component which helps us to achieve some specific goals. Trigger is the most important thing, it has the similair outlook (syntax frame) as a module, but its major task is to tell system what to do when something happens.</p>
 <h3 id="FRAME"><a href="#FRAME" class="headerlink" title="FRAME"></a>FRAME</h3><p>A trading system must have the following characters:</p>
@@ -101,80 +78,84 @@
 </ul>
 <p>So far my feelings about building a trading platform that programming is not the hard part, safety is the major issue. You are not only asked to achieve goals, but also to achieve them in a stable and safety way, which requires a lot of control. For insatance, if all of your orders were correct except one missing the trading volume, your system should be able to detect that before it was send out.</p>
 
-      
-    </div>
-    
-    
-      <footer class="article-footer">
-        
-      </footer>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/articles/stairwaytoquanttrading2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          Stairway to Quant Trading - Part 2
-        
-      </div>
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>Gehua Zhang</h4>
+    <p>A designer, developer and entrepreneur. Spends his time travelling the world with a bag of kites. Likes journalism and publishing platforms.</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://gehuazhang.github.io/articles/stairwaytoquanttrading1/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
     </a>
-  
-  
-    <a href="/articles/Hello/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello Everyone!&nbsp;<span>&gt;</span></div>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://gehuazhang.github.io/articles/stairwaytoquanttrading1/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
     </a>
-  
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://gehuazhang.github.io/articles/stairwaytoquanttrading1/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/articles/stairwaytoquanttrading2/">
+        ← Stairway to Quant Trading - Part 2
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/articles/Hello/">
+        Hello Everyone! →
+    </a>
+    
 </nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
 
-  
-</article>
-
-
-
-
-
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
-
-</section>
-    <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Gehua Zhang&nbsp;
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Gehua Zhang's Blog</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
   </div>
 </footer>
-    
-<script>
-  var disqus_shortname = 'gehuazhangblog';
-  
-  var disqus_url = 'https://gehuazhang.github.io/articles/stairwaytoquanttrading1/';
-  
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<script src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
 
 
 
-<script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script type="text/javascript">
+    var disqus_shortname = 'gehuazhangblog';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
 </body>
 </html>
