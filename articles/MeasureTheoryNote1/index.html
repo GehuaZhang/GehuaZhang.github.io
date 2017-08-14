@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/MeasureTheoryNote1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="测度论笔记 1">
-<meta property="og:updated_time" content="2017-08-14T08:13:37.114Z">
+<meta property="og:updated_time" content="2017-08-14T08:19:24.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Measure Theory Notes-1 测度论笔记-1">
 <meta name="twitter:description" content="测度论笔记 1">
@@ -76,8 +76,7 @@
 <li>$X \in \mathbb{R}, X$ 能表现出代数性(algebraic, 即能作为一个系数是整数的多项式的解)的概率?</li>
 <li>一个很著名的悖论: 一个实心球仅仅通过旋转和平移, 就能分成两个半径和之前一样的完整的球. <a href="https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox" target="_blank" rel="external">Banach–Tarski Paradox</a></li>
 </ul>
-<p>其实对于很多事件, 我们是找不到它们发生的概率的, 更重要的是, 概率在很多地方是没有定义的, 也是没有意义的. 在数学上我们可以证明这个结论 [^1]</p>
-<p><a href="#proof-111">Proof_1.1.1</a>, 可以说明在 $[0,1]$ 区间上有很多点我们都不能找到概率的定义. 那么为了研究概率, 我们就必须规定在什么情况下我们谈论概率是有意义的, 什么情况下试验结果是可以被测量的, 也就是测度论第一个要解决的问题, 哪些集合可测(measurable). 这也是之后我们使用概率的时候需要注意的–讨论概率之前先看这个空间可测吗. </p>
+<p>其实对于很多事件, 我们是找不到它们发生的概率的, 更重要的是, 概率在很多地方是没有定义的, 也是没有意义的. 在数学上我们可以证明这个结论<a href="#proof-111">Proof_1.1.1</a>, 可以说明在 $[0,1]$ 区间上有很多点我们都不能找到概率的定义. 那么为了研究概率, 我们就必须规定在什么情况下我们谈论概率是有意义的, 什么情况下试验结果是可以被测量的, 也就是测度论第一个要解决的问题, 哪些集合可测(measurable). 这也是之后我们使用概率的时候需要注意的–讨论概率之前先看这个空间可测吗. </p>
 <p>不光是概率有测度, 测度是很多数学概念的根基. 比如我们常用的雷曼积分就是基于 Jordan measure, 需要我们的函数在满足 Jordan measure的条件下才能使用雷曼积分, 而在其他的积分办法中我们就会用到其他的测度.</p>
 <p>我们规定, 概率空间probability space是由三个元素构成, 我们叫它们probability triples(概率三兄弟?)  $ (\Omega,\mathcal{F},P) $ : </p>
 <ul>
@@ -181,7 +180,7 @@
 <li>通过Extension Theory把 $\mu$ 扩展到 $\sigma$-algebra上.</li>
 </ul>
 <p><strong>这大概就是一些学习测度论最开始的一些笔记, 而且也非常不完整, 很多东西我跳过了, 自己也不太看得懂, 所以可能漏洞百出. 之后的笔记可能是一些对random variable的定义, 积分的定义之类. 就我的感受来说, 测度论还是对思维的影响非常大, 这种从finity到countable infinity的转变, 其实说明了我们很多时候在考虑试验结果时, 不应该去再一个一个的数试验发生的次数, 也不是一个单个的试验结果, 而是把它们想成一个一个的集合, 再去对集合进行处理.</strong></p>
-<h3 id="0-Proofs"><a href="#0-Proofs" class="headerlink" title="0. Proofs"></a>0. Proofs</h3><p>[^1]</p>
+<h3 id="0-Proofs"><a href="#0-Proofs" class="headerlink" title="0. Proofs"></a>0. Proofs</h3><p><span id="proof-111">Hello World</span></p>
 <h4 id="Proof-1-1-1"><a href="#Proof-1-1-1" class="headerlink" title="Proof 1.1.1"></a>Proof 1.1.1</h4><p>为了方便起见, 我们都假设试验空间是实数轴 $[0,1]$ 之间的均匀分布, 任何超过这个范围的数或者集合, 我们都可以把它shift到这个区间来(就是加减一个数让给它变到 $[0,1]$ 之间来), 且shift前后它们的概率相等. 不光如此, 对于相互独立的集合 $A_1, A_2, A_3 \dots $ 我们有 $P(A_1 \cup A_2 \cup A_3 \dots) =  P(A_1) + P(A_2) + P(A_3) +\dots$<br>现在我们很巧妙地定义一个等价关系 $x\sim y \Leftrightarrow x-y \text{ is rational }$, 这样 $[0,1]$ 就被划分成了2个等价的独立的集合. 那么每次我们分别从两个集合里各自取一个元素出来, 它们也是互相独立的. 我们就可以把它们全部加起来, 总共的概率是等于1. 又因为它们满足这样一个性质, 加减一个有理数之后(就是shift一个有理数的量), 它们的概率不变, 那我们把他们全部shift到点$H$上去. 这就造成了一个悖论: $\sum P(H) = 1$. 任何数的无穷次相加的值无外乎 $0, \infty, -\infty$, 而我们的结论却是等于1.<br><a href="#1_1">back</a></p>
 <h4 id="Proof-1-5-1"><a href="#Proof-1-5-1" class="headerlink" title="Proof 1.5.1"></a>Proof 1.5.1</h4><p>假设这样一个集合$S = \bigcup_{n=1}^{\infty} (a_{n},b_{n}], \text{ for } a_{n} \le b_{n}$. 我们举一个特例: $S = \bigcup_{n=1}^{\infty} (0,1-\frac{1}{n}]$. 如果对于$S$中任意元素来说, 或者是它们的有限次并集来说, 我们最后得到的集合的形式也是前开后闭$(m,n]$这样的形式, 但是它们的无限次并集就会让我们得到$(0,1)$, 而这个元素是不存在与$S$中的. 那么也就是说对$S$的finity次取并集, 我们得到的集合仍然在$S$中, 那么它属于algebra; 但是对$S$的countable次取并集, 我们得到的集合却不在$S$中, 那么它是不属于semi-algebra的.<br><a href="#4-sigma-algebra">back</a></p>
 
