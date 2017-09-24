@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/machinelearningnote1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="This note is for Machine Learning Course in Coursera, teach by Andrew Ng, Stanford University.">
-<meta property="og:updated_time" content="2017-09-20T08:47:30.410Z">
+<meta property="og:updated_time" content="2017-09-20T08:50:26.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Note1">
 <meta name="twitter:description" content="This note is for Machine Learning Course in Coursera, teach by Andrew Ng, Stanford University.">
@@ -80,8 +80,12 @@
         <h4 id="This-note-is-for-Machine-Learning-Course-in-Coursera-teach-by-Andrew-Ng-Stanford-University"><a href="#This-note-is-for-Machine-Learning-Course-in-Coursera-teach-by-Andrew-Ng-Stanford-University" class="headerlink" title="This note is for Machine Learning Course in Coursera, teach by Andrew Ng, Stanford University."></a>This note is for Machine Learning Course in Coursera, teach by Andrew Ng, Stanford University.</h4><a id="more"></a>
 <ol>
 <li>Linear Regression</li>
-<li>Logistic Regression<br> With the same principle as Linear Regression, but two differences, Logistic Regression stands for the most basic method of non-linear regression: (1) Mapping X, the feature value, to a higher dimensional space. For example, map $[x_1,x_2]$ to $[x_1^3, x_1^2 x_2, x_1 x_2^2, x_2^3, x_1^2, x_2^2, x_1 x_2, x_1, x_2]$, in which we have extended features from first power to at most third power. In this way we get a non-linear boundary. (2) However, as the raising of the numbers of features, our model becomes more volunerable, means easier to get overfitted. To solve this problem, an approach is to scale the value of features. Here we apply sigmoid function:<br> $$ F(x) = \frac{1}{1+e^{-x}} $$<br> To scale $x$ down within a range between $0$ and $1$. </li>
-<li>Neural Networks</li>
+<li><p>Logistic Regression<br> With the same principle as Linear Regression, but two differences, Logistic Regression stands for the most basic method of non-linear regression: (1) Mapping X, the feature value, to a higher dimensional space. For example, map $[x_1,x_2]$ to $[x_1^3, x_1^2 x_2, x_1 x_2^2, x_2^3, x_1^2, x_2^2, x_1 x_2, x_1, x_2]$, in which we have extended features from first power to at most third power. In this way we get a non-linear boundary. (2) However, as the raising of the numbers of features, our model becomes more volunerable, means easier to get overfitted. To solve this problem, an approach is to scale the value of features. Here we apply sigmoid function:<br> $$ F(x) = \frac{1}{1+e^{-x}} $$<br> To scale $x$ down within a range between $0$ and $1$. </p>
+<p> Adv:</p>
+<p> Dis: If number of features are too much, hard to map them into higher dimension.</p>
+</li>
+<li><p>Neural Networks</p>
+</li>
 </ol>
 
       
