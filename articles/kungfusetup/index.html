@@ -5,16 +5,16 @@
   
   <title>KungFu Setup - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.aiKungFu is running on a Linux environment, and the opearting system prefers CentOS. Once you s">
+  <meta name="description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KungFu Setup">
 <meta property="og:url" content="https://gehuazhang.github.io/articles/kungfusetup/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.aiKungFu is running on a Linux environment, and the opearting system prefers CentOS. Once you s">
-<meta property="og:updated_time" content="2018-03-15T06:53:52.389Z">
+<meta property="og:description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai">
+<meta property="og:updated_time" content="2018-03-15T06:54:53.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KungFu Setup">
-<meta name="twitter:description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.aiKungFu is running on a Linux environment, and the opearting system prefers CentOS. Once you s">
+<meta name="twitter:description" content="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai">
   
   
     <link rel="icon" href="/favicon.png">
@@ -77,7 +77,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="This-note-is-for-setting-up-KungFu-trading-platform-on-Linux-KungFu-is-an-open-source-project-by-Taurus-ai"><a href="#This-note-is-for-setting-up-KungFu-trading-platform-on-Linux-KungFu-is-an-open-source-project-by-Taurus-ai" class="headerlink" title="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai"></a>This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai</h4><p>KungFu is running on a Linux environment, and the opearting system prefers <a href="https://www.centos.org/" target="_blank" rel="external">CentOS</a>. Once you setup the system, you may move forward.</p>
+        <h4 id="This-note-is-for-setting-up-KungFu-trading-platform-on-Linux-KungFu-is-an-open-source-project-by-Taurus-ai"><a href="#This-note-is-for-setting-up-KungFu-trading-platform-on-Linux-KungFu-is-an-open-source-project-by-Taurus-ai" class="headerlink" title="This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai"></a>This note is for setting up KungFu trading platform on Linux. KungFu is an open source project by Taurus.ai</h4><a id="more"></a>
+<p>KungFu is running on a Linux environment, and the opearting system prefers <a href="https://www.centos.org/" target="_blank" rel="external">CentOS</a>. Once you setup the system, you may move forward.</p>
 <p>First install docker:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install docker</div><div class="line">$ sudo systemctl start docker</div><div class="line">$ sudo systemctl status docker</div></pre></td></tr></table></figure></p>
 <p>From here you could see details about the docker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">docker.service - Docker Application Container Engine</div><div class="line">   Loaded: loaded (/usr/lib/systemd/system/docker.service; disabled; vendor preset: disabled)</div><div class="line">   Active: active (running) since Thu 2018-03-15 12:34:55 +08; 6s ago</div><div class="line">     Docs: http://docs.docker.com</div><div class="line">Main PID: 71053 (dockerd-current)</div><div class="line">   CGroup: /system.slice/docker.service</div><div class="line">           ├─71053 /usr/bin/dockerd-current --add-runtime docker-runc=/usr/libexec/docker/docker-runc-current --default-r...</div><div class="line">           └─71076 /usr/bin/docker-containerd-current -l unix:///var/run/docker/libcontainerd/docker-containerd.sock --me...</div></pre></td></tr></table></figure></p>
 <p>Then pull the image of KungFu<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo docker pull image.taurusai.com/library/kungfu-devel</div></pre></td></tr></table></figure></p>
