@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>optionTradingNotes.md - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This note is for option trading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="optionTradingNotes.md">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/optiontradingnotes/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="This note is for option trading">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/IV_T.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/dsigma_T.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_sensitive.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_volume.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_1.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_2.png">
+<meta property="og:updated_time" content="2018-04-04T05:46:23.872Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="optionTradingNotes.md">
+<meta name="twitter:description" content="This note is for option trading">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/IV_T.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Category</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-optiontradingnotes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      optionTradingNotes.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/optiontradingnotes/" class="article-date">
+  <time datetime="2018-04-04T17:15:06.000Z" itemprop="datePublished">2018-04-04</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stairway-to-quant-trading/">Stairway to Quant Trading</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="This-note-is-for-option-trading"><a href="#This-note-is-for-option-trading" class="headerlink" title="This note is for option trading"></a>This note is for option trading</h4><a id="more"></a>
+<h3 id="合约选择"><a href="#合约选择" class="headerlink" title="合约选择"></a>合约选择</h3><ol>
+<li><p>对市场把握大，且看涨时，买 行权价 $\le$ 股价的Call，即实值Call，且档位越高收入越多。(因为Call Delta更大，放大收益，且Put Delta的绝对值更小，减小损失)<br>对市场把握大，且看跌时，买 行权价 $\ge$ 股价的Put，即实值Put，且档位越高收入越多。(因为Put Delta更大，放大收益，且Call Delta的绝对值更小，减小损失)</p>
+</li>
+<li><p>对市场把握不大时，买Call和Put各自对应的虚值。</p>
+</li>
+<li><p>近期合约表现好于远期合约。</p>
+</li>
+<li><p>如果对股价走势处于震荡行情，或者对股价走势把握不大，最好不开仓，要开就开平值Put，因为Put对行情更敏感。</p>
+</li>
+<li><p>如果做Straddle,如果股价上升，买价格$\le$平值的合约call和put；如果股价下降，买价格$\ge$平值的合约call和put.</p>
+</li>
+</ol>
+<h3 id="隐含波动率研究-Implied-Volatility"><a href="#隐含波动率研究-Implied-Volatility" class="headerlink" title="隐含波动率研究 Implied Volatility"></a>隐含波动率研究 Implied Volatility</h3><p><img src="/articles/optiontradingnotes/IV_T.png" alt="近远期合约的隐含波动走势"><br><img src="/articles/optiontradingnotes/dsigma_T.png" alt="近远期合约的dSigma走势"></p>
+<p>结论：</p>
+<ol>
+<li><p>近远期合约的隐含波动走势一致，值不一样。 </p>
+</li>
+<li><p>虽然值不一样，但是影响盈利的是dsigma，但是dsigma看不出近远期合约谁更有优势。 所以选择近期或者远期合约对盈利影响不大。推荐还是选择近期合约，在5天到期时换。</p>
+</li>
+<li><p>T减小对隐含波动增大的原因：临近到期，期权理论价格变得越来越来小甚至接近于0，但是由于交易费用的存在，市场上不可能存在价格接近于0的期权，所以这个时候我们带入市场价格算隐含波动，就是在用一个偏离理论值较大的价格来算隐含波动，所以求出来的隐含波动率较大，且这个现象会随着T的减小变得非常明显，在到期还有1-2天时，隐含波动的上升非常明显。同时，这个时候的隐含波动也变得没有意义，因为此时期权临近到期交易不会很活跃。</p>
+</li>
+</ol>
+<h3 id="Call-Put-敏感分析"><a href="#Call-Put-敏感分析" class="headerlink" title="Call Put 敏感分析"></a>Call Put 敏感分析</h3><p><img src="/articles/optiontradingnotes/call_put_sensitive.png" alt="Call Put 走势"></p>
+<ol>
+<li><p>左上是标的，右上期货，左下2.75 Call，右下2.75 Put. 左边红线开仓点，右边红线平仓点。可以看到Call和Put都亏了钱。原因在于Call的走势并没有发映出大盘</p>
+</li>
+<li><p>这个是翻转put之后的图，可以看到put与标的走势很接近，但是call的走势并没有反映这一点。<br>这个就是表现极差的原因：put对标的价格变动更敏感，在大盘震荡很大时，Put已经亏了钱，但是call还没有涨上去赚钱，然后马上put又开始赚钱时，call就才回过神来但是已经晚了，于是call继续亏钱，就相当于迈过了call上涨的那一段。所以最后来看put和call都亏了钱。那么造成put和call对标的敏感程度不一样的原因，我觉得有2个。1：call和put成交量差别很大：</p>
+<ol>
+<li><p>Put成交量远大于Call, 所以put 对价格更敏感。<br><img src="/articles/optiontradingnotes/call_put_volume.png" alt="Call Put 成交量"></p>
+</li>
+<li><p>Put Call Spread:<br>在标的股价下降时，put call parity 计算出来的差值，即spread就会上升，两者是完美的负相关关系(coef = -1)，这就会造成Spread 也在波动。我们假设标的在这样一种震荡中：先下降后上升，那么spread就会先上升后下降，由于Put成交量更大，先反应出价格变动，又由于spread下降，call就更不容易反映出价格变动，所以造成了call更不敏感。<br><img src="/articles/optiontradingnotes/call_put_diff_1.png" alt="Call Put 对比1"><br><img src="/articles/optiontradingnotes/call_put_diff_2.png" alt="Call Put 对比2"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h4 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h4><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
+<ol>
+<li>主要是Delta在负责盈亏，一般来说Delta能占到60%以上的盈亏解释</li>
+</ol>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/articles/kungfusetup/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KungFu Setup&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/optiontradingnotes/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
