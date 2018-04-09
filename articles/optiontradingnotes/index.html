@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_volume.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_1.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_2.png">
-<meta property="og:updated_time" content="2018-04-09T07:24:24.235Z">
+<meta property="og:updated_time" content="2018-04-09T08:30:21.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Option Trading Notes">
 <meta name="twitter:description" content="This note is for option trading">
@@ -125,9 +125,9 @@
 <li><p>关于杠杆：如果从期权收益除以期权价格来说，不一定平值杠杆最大，或者实值杠杆大，或者虚值杠杆大。</p>
 </li>
 <li><p>近远期合约Greeks：</p>
+<p><img src="/articles/optiontradingnotes/greeks_T_2.png" alt="近远期合约的Greeks走势"></p>
 </li>
 </ol>
-<p><img src="/articles/optiontradingnotes/greeks_T_2.png" alt="近远期合约的Greeks走势"></p>
 <h3 id="隐含波动率研究-Implied-Volatility"><a href="#隐含波动率研究-Implied-Volatility" class="headerlink" title="隐含波动率研究 Implied Volatility"></a>隐含波动率研究 Implied Volatility</h3><p><img src="/articles/optiontradingnotes/IV_T.png" alt="近远期合约的隐含波动走势"><br><img src="/articles/optiontradingnotes/dsigma_T.png" alt="近远期合约的dSigma走势"></p>
 <p>结论：</p>
 <ol>
@@ -153,7 +153,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h5 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h5><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
+<h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h5 id="公式：-如果Vega以小数计，应该再乘以100"><a href="#公式：-如果Vega以小数计，应该再乘以100" class="headerlink" title="公式： (如果Vega以小数计，应该再乘以100)"></a>公式： (如果Vega以小数计，应该再乘以100)</h5><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
 <ol>
 <li><p>主要是Delta在负责盈亏，一般来说Delta能占到60%以上的盈亏解释</p>
 </li>
