@@ -3,11 +3,11 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>optionTradingNotes.md - Gehua Zhang&#39;s Blog</title>
+  <title>Option Trading Notes - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="This note is for option trading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="optionTradingNotes.md">
+<meta property="og:title" content="Option Trading Notes">
 <meta property="og:url" content="https://gehuazhang.github.io/articles/optiontradingnotes/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="This note is for option trading">
@@ -17,9 +17,9 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_volume.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_1.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_2.png">
-<meta property="og:updated_time" content="2018-04-04T05:46:23.872Z">
+<meta property="og:updated_time" content="2018-04-09T03:02:57.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="optionTradingNotes.md">
+<meta name="twitter:title" content="Option Trading Notes">
 <meta name="twitter:description" content="This note is for option trading">
 <meta name="twitter:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/IV_T.png">
   
@@ -65,7 +65,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      optionTradingNotes.md
+      Option Trading Notes
     </h1>
   
 
@@ -85,6 +85,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="This-note-is-for-option-trading"><a href="#This-note-is-for-option-trading" class="headerlink" title="This note is for option trading"></a>This note is for option trading</h4><a id="more"></a>
+<h3 id="期权常识"><a href="#期权常识" class="headerlink" title="期权常识"></a>期权常识</h3><ol>
+<li><p>期权真正价值 = 时间长短 Theta + 标的物波动率</p>
+</li>
+<li><p>隐含波动率表“未来”一段时间的波动率</p>
+</li>
+<li><p>股价不符合标准的正态分布（肥尾尖峰）–&gt; 导致了波动率微笑：<br>肥尾 –&gt; 小波动概率大 –&gt; Vol Smile 左部分高<br>尖峰 –&gt; 大波动概率也大 –&gt; Vol Smile 右部分也高</p>
+</li>
+<li><p>关于Vol Smile的Skew, 即Vol Smile并不关于一个垂直线对称： 因为股票特点，慢慢涨，高速跌。</p>
+</li>
+<li><p>如果IV &gt; Realized Vol，那么long straddle就赚钱。</p>
+</li>
+<li><p>真实杠杆率计算</p>
+<p>期权真实杠杆率 = $\frac{期货价格}{期权价格} \times Delta$</p>
+</li>
+<li><p>Hedge Vega是一定会Short Option，所以不推荐Hedge Vega<br>Hedge Vega + Delta 不光要Short Option 还要涉及Underlying Asset</p>
+</li>
+</ol>
 <h3 id="合约选择"><a href="#合约选择" class="headerlink" title="合约选择"></a>合约选择</h3><ol>
 <li><p>对市场把握大，且看涨时，买 行权价 $\le$ 股价的Call，即实值Call，且档位越高收入越多。(因为Call Delta更大，放大收益，且Put Delta的绝对值更小，减小损失)<br>对市场把握大，且看跌时，买 行权价 $\ge$ 股价的Put，即实值Put，且档位越高收入越多。(因为Put Delta更大，放大收益，且Call Delta的绝对值更小，减小损失)</p>
 </li>
@@ -95,6 +112,10 @@
 <li><p>如果对股价走势处于震荡行情，或者对股价走势把握不大，最好不开仓，要开就开平值Put，因为Put对行情更敏感。</p>
 </li>
 <li><p>如果做Straddle,如果股价上升，买价格$\le$平值的合约call和put；如果股价下降，买价格$\ge$平值的合约call和put.</p>
+</li>
+<li><p>实值Call的dSigma变动 &gt; 平值 &gt; 虚值<br>实值Put的dSigma变动 &gt; 平值 &gt; 虚值</p>
+</li>
+<li><p>关于杠杆：如果从期权收益除以期权价格来说，不一定平值杠杆最大，或者实值杠杆大，或者虚值杠杆大。</p>
 </li>
 </ol>
 <h3 id="隐含波动率研究-Implied-Volatility"><a href="#隐含波动率研究-Implied-Volatility" class="headerlink" title="隐含波动率研究 Implied Volatility"></a>隐含波动率研究 Implied Volatility</h3><p><img src="/articles/optiontradingnotes/IV_T.png" alt="近远期合约的隐含波动走势"><br><img src="/articles/optiontradingnotes/dsigma_T.png" alt="近远期合约的dSigma走势"></p>
@@ -122,7 +143,21 @@
 </ol>
 <h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h4 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h4><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
 <ol>
-<li>主要是Delta在负责盈亏，一般来说Delta能占到60%以上的盈亏解释</li>
+<li><p>主要是Delta在负责盈亏，一般来说Delta能占到60%以上的盈亏解释</p>
+</li>
+<li><p>Vega在平值时最大，dSigma在平值时波动最剧烈，Gamma在平值时最大。</p>
+</li>
+<li><p>从50ETF观察到的现象是，Gamma带来的收益很小，可以忽略不计。但是这个规律在S较大，dS也较大的时候就不一定成立，那时候Gamma带来的收益甚至比Vega带来的收益大。</p>
+</li>
+</ol>
+<h3 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h3><ol>
+<li><p>到期剩5日时不要交易</p>
+</li>
+<li><p>回归数据注意分红情况</p>
+</li>
+<li><p>有时期权会断：分红后原期权消失，但是现在标的价格又很远，超出了两档，所以并不会补充该行权价的期权，所以会消失。</p>
+</li>
+<li></li>
 </ol>
 
       
