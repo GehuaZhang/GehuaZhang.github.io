@@ -11,17 +11,19 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/optiontradingnotes/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="This note is for option trading">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/greeks_T_2.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/IV_T.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/dsigma_T.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/HisVol_IV.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_sensitive.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_volume.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_1.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_2.png">
-<meta property="og:updated_time" content="2018-04-09T03:04:12.617Z">
+<meta property="og:updated_time" content="2018-04-09T05:21:54.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Option Trading Notes">
 <meta name="twitter:description" content="This note is for option trading">
-<meta name="twitter:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/IV_T.png">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/greeks_T_2.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -117,6 +119,8 @@
 </li>
 <li><p>关于杠杆：如果从期权收益除以期权价格来说，不一定平值杠杆最大，或者实值杠杆大，或者虚值杠杆大。</p>
 </li>
+<li><p>近远期合约Greeks：<br><img src="/articles/optiontradingnotes/greeks_T_2.png" alt="近远期合约的Greeks走势"></p>
+</li>
 </ol>
 <h3 id="隐含波动率研究-Implied-Volatility"><a href="#隐含波动率研究-Implied-Volatility" class="headerlink" title="隐含波动率研究 Implied Volatility"></a>隐含波动率研究 Implied Volatility</h3><p><img src="/articles/optiontradingnotes/IV_T.png" alt="近远期合约的隐含波动走势"><br><img src="/articles/optiontradingnotes/dsigma_T.png" alt="近远期合约的dSigma走势"></p>
 <p>结论：</p>
@@ -126,6 +130,8 @@
 <li><p>虽然值不一样，但是影响盈利的是dsigma，但是dsigma看不出近远期合约谁更有优势。 所以选择近期或者远期合约对盈利影响不大。推荐还是选择近期合约，在5天到期时换。</p>
 </li>
 <li><p>T减小对隐含波动增大的原因：临近到期，期权理论价格变得越来越来小甚至接近于0，但是由于交易费用的存在，市场上不可能存在价格接近于0的期权，所以这个时候我们带入市场价格算隐含波动，就是在用一个偏离理论值较大的价格来算隐含波动，所以求出来的隐含波动率较大，且这个现象会随着T的减小变得非常明显，在到期还有1-2天时，隐含波动的上升非常明显。同时，这个时候的隐含波动也变得没有意义，因为此时期权临近到期交易不会很活跃。</p>
+</li>
+<li><p>历史波动率与隐含波动率比较<br><img src="/articles/optiontradingnotes/HisVol_IV.png" alt="历史波动率与隐含波动率比较"></p>
 </li>
 </ol>
 <h3 id="Call-Put-敏感分析"><a href="#Call-Put-敏感分析" class="headerlink" title="Call Put 敏感分析"></a>Call Put 敏感分析</h3><p><img src="/articles/optiontradingnotes/call_put_sensitive.png" alt="Call Put 走势"></p>
