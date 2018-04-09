@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_volume.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_1.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/optiontradingnotes/call_put_diff_2.png">
-<meta property="og:updated_time" content="2018-04-09T05:21:54.481Z">
+<meta property="og:updated_time" content="2018-04-09T05:54:14.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Option Trading Notes">
 <meta name="twitter:description" content="This note is for option trading">
@@ -92,16 +92,21 @@
 </li>
 <li><p>隐含波动率表“未来”一段时间的波动率</p>
 </li>
-<li><p>股价不符合标准的正态分布（肥尾尖峰）–&gt; 导致了波动率微笑：<br>肥尾 –&gt; 小波动概率大 –&gt; Vol Smile 左部分高<br>尖峰 –&gt; 大波动概率也大 –&gt; Vol Smile 右部分也高</p>
+<li><p>股价不符合标准的正态分布（肥尾尖峰）–&gt; 导致了波动率微笑：<br>肥尾 –&gt; 股市出现小波动的概率大 –&gt; Vol Smile 左部分高<br>尖峰 –&gt; 股市出现大波动概率也大 –&gt; Vol Smile 右部分也高</p>
 </li>
 <li><p>关于Vol Smile的Skew, 即Vol Smile并不关于一个垂直线对称： 因为股票特点，慢慢涨，高速跌。</p>
-</li>
-<li><p>如果IV &gt; Realized Vol，那么long straddle就赚钱。</p>
 </li>
 <li><p>真实杠杆率计算</p>
 <p>期权真实杠杆率 = $\frac{期货价格}{期权价格} \times Delta$</p>
 </li>
+<li><p>合约分红</p>
+</li>
+</ol>
+<p>$$<br>    调整后的收盘价=调整前的收盘价-每1份额分红<br>$$<br>$$<br>    调整后的合约乘数=调整前的合约乘数 \times \frac{调整前的收盘}{调整后的收盘}<br>$$<br>$$<br>    调整后的行权价=\frac{调整前的行权价 \times 调整前合约乘数}{调整后合约乘数}<br>$$</p>
+<ol>
 <li><p>Hedge Vega是一定会Short Option，所以不推荐Hedge Vega<br>Hedge Vega + Delta 不光要Short Option 还要涉及Underlying Asset</p>
+</li>
+<li><p>行权价格间距：“50ETF”收盘价与上证50ETF期权行权价格间距的对应关系为：3元或以下为0.05元，3元至5元（含）为0.1元，5元至10元（含）为0.25元，10元至20元（含）为0.5元，20元至50元（含）为1元，50元至100元（含）为2.5元，100元以上为5元。</p>
 </li>
 </ol>
 <h3 id="合约选择"><a href="#合约选择" class="headerlink" title="合约选择"></a>合约选择</h3><ol>
@@ -147,7 +152,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h4 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h4><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
+<h3 id="PnL分析"><a href="#PnL分析" class="headerlink" title="PnL分析"></a>PnL分析</h3><h5 id="公式："><a href="#公式：" class="headerlink" title="公式："></a>公式：</h5><p>$$<br>dC = Delta \times dS + 0.5 \times Gamma \times dS^2 + Vega \times dSigma<br>$$</p>
 <ol>
 <li><p>主要是Delta在负责盈亏，一般来说Delta能占到60%以上的盈亏解释</p>
 </li>
@@ -164,6 +169,7 @@
 <li><p>有时期权会断：分红后原期权消失，但是现在标的价格又很远，超出了两档，所以并不会补充该行权价的期权，所以会消失。</p>
 </li>
 </ol>
+<h3 id="附"><a href="#附" class="headerlink" title="附"></a>附</h3><p>Matlab 计算隐含波动率程序： <a href="/download/imVol.m">点击下载</a></p>
 
       
     </div>
