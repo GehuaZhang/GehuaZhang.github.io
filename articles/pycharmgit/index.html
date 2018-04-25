@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>pycharmGit - Gehua Zhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Connect Your PyCharm to Github and Auto Push &amp;amp; PullPyCharm链接GitHub并自动同步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pycharmGit">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/pycharmgit/index.html">
+<meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
+<meta property="og:description" content="Connect Your PyCharm to Github and Auto Push &amp;amp; PullPyCharm链接GitHub并自动同步">
+<meta property="og:updated_time" content="2018-04-25T11:49:23.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pycharmGit">
+<meta name="twitter:description" content="Connect Your PyCharm to Github and Auto Push &amp;amp; PullPyCharm链接GitHub并自动同步">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">Gehua Zhang&#39;s Blog</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/categories">Category</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://gehuazhang.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-pycharmgit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      pycharmGit
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/articles/pycharmgit/" class="article-date">
+  <time datetime="2018-04-25T23:37:29.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">Programming</a>
+  </div>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Connect Your PyCharm to Github and Auto Push &amp; Pull<br>PyCharm链接GitHub并自动同步</p>
+<a id="more"></a>
+<h3 id="1-Download-Git-Bash-and-install"><a href="#1-Download-Git-Bash-and-install" class="headerlink" title="1. Download Git Bash and install."></a>1. Download Git Bash and install.</h3><pre><code>If Git Bash appears when you right click on desktop, then it&apos;s successfully installed
+</code></pre><h3 id="2-Download-PyCharm-and-install"><a href="#2-Download-PyCharm-and-install" class="headerlink" title="2. Download PyCharm and install."></a>2. Download PyCharm and install.</h3><h3 id="3-Open-PyCharm-gt-File-gt-Settings-gt-Version-Control-gt-Git-select-your-Git-Bash-path"><a href="#3-Open-PyCharm-gt-File-gt-Settings-gt-Version-Control-gt-Git-select-your-Git-Bash-path" class="headerlink" title="3. Open PyCharm -&gt; File -&gt; Settings -&gt; Version Control -&gt; Git, select your Git Bash path."></a>3. Open PyCharm -&gt; File -&gt; Settings -&gt; Version Control -&gt; Git, select your Git Bash path.</h3><pre><code>In my PC, it&apos;s C:\Program Files\Git\cmd\git.exe
+</code></pre><h3 id="4-In-PyCharm-gt-VCS-gt-Git-Select-your-project’s-repository-then-create-a-local-folder"><a href="#4-In-PyCharm-gt-VCS-gt-Git-Select-your-project’s-repository-then-create-a-local-folder" class="headerlink" title="4. In PyCharm -&gt; VCS -&gt; Git, Select your project’s repository then create a local folder."></a>4. In PyCharm -&gt; VCS -&gt; Git, Select your project’s repository then create a local folder.</h3><h3 id="5-If-you-want-to-push-VCS-gt-Git-gt-push-then-commit-and-push"><a href="#5-If-you-want-to-push-VCS-gt-Git-gt-push-then-commit-and-push" class="headerlink" title="5. If you want to push, VCS -&gt; Git -&gt; push, then commit and push."></a>5. If you want to push, VCS -&gt; Git -&gt; push, then commit and push.</h3><h3 id="1-下载git-bash，自己试一试，反正能右键打开git-bash就好了"><a href="#1-下载git-bash，自己试一试，反正能右键打开git-bash就好了" class="headerlink" title="1.下载git bash，自己试一试，反正能右键打开git bash就好了"></a>1.下载git bash，自己试一试，反正能右键打开git bash就好了</h3><h3 id="2-下载pyCharm-有免费版的，然后加个文件保存的路径啊什么的"><a href="#2-下载pyCharm-有免费版的，然后加个文件保存的路径啊什么的" class="headerlink" title="2. 下载pyCharm 有免费版的，然后加个文件保存的路径啊什么的"></a>2. 下载pyCharm 有免费版的，然后加个文件保存的路径啊什么的</h3><h3 id="3-pyCharm选中files-gt-settings-gt-version-control-gt-git-没在pycharm里登录github的就登陆下，登陆了的就找到git-bash-exe的安装位置，然后OK就好了"><a href="#3-pyCharm选中files-gt-settings-gt-version-control-gt-git-没在pycharm里登录github的就登陆下，登陆了的就找到git-bash-exe的安装位置，然后OK就好了" class="headerlink" title="3. pyCharm选中files -&gt; settings -&gt; version control -&gt; git, 没在pycharm里登录github的就登陆下，登陆了的就找到git bash.exe的安装位置，然后OK就好了"></a>3. pyCharm选中files -&gt; settings -&gt; version control -&gt; git, 没在pycharm里登录github的就登陆下，登陆了的就找到git bash.exe的安装位置，然后OK就好了</h3><h3 id="4-pyCharm选中VCS-gt-git-然后选择我们这个Jarvis项目-然后生成一个本地的folder-然后就搞定。"><a href="#4-pyCharm选中VCS-gt-git-然后选择我们这个Jarvis项目-然后生成一个本地的folder-然后就搞定。" class="headerlink" title="4. pyCharm选中VCS -&gt; git 然后选择我们这个Jarvis项目 然后生成一个本地的folder, 然后就搞定。"></a>4. pyCharm选中VCS -&gt; git 然后选择我们这个Jarvis项目 然后生成一个本地的folder, 然后就搞定。</h3><h3 id="5-以后打开pyCharm-要写新的函数啊比如说，就在这个文件下面写，然后VCS-gt-git-gt-push，要下其他人写的就pull"><a href="#5-以后打开pyCharm-要写新的函数啊比如说，就在这个文件下面写，然后VCS-gt-git-gt-push，要下其他人写的就pull" class="headerlink" title="5. 以后打开pyCharm 要写新的函数啊比如说，就在这个文件下面写，然后VCS -&gt; git -&gt; push，要下其他人写的就pull"></a>5. 以后打开pyCharm 要写新的函数啊比如说，就在这个文件下面写，然后VCS -&gt; git -&gt; push，要下其他人写的就pull</h3>
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/articles/optiontradingnotes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Option Trading Notes&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Gehua Zhang&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'gehuazhangblog';
+  
+  var disqus_url = 'https://gehuazhang.github.io/articles/pycharmgit/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
