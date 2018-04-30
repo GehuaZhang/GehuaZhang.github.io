@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/addnewclusteruser.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.png">
-<meta property="og:updated_time" content="2018-04-30T05:00:58.626Z">
+<meta property="og:updated_time" content="2018-04-30T05:03:13.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup MongoDB Server With Python">
 <meta name="twitter:description" content="Setup MongoDB Server With Python">
@@ -100,7 +100,7 @@
 <p>2) Click Collection -&gt; import data</p>
 <p>3) You may also use command line to upload data. This requires configure Environment Variables in System. </p>
 <h5 id="5-Link-To-Python"><a href="#5-Link-To-Python" class="headerlink" title="5. Link To Python"></a>5. Link To Python</h5><p>1) Get you client string from Atlas, and replace <password> with user password you set in step 1:</password></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure>
+<p>For example, my link string is like:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure></p>
 
       
     </div>
