@@ -13,7 +13,7 @@
 <meta property="og:description" content="Setup MongoDB Server With Python">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/addnewclusteruser.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.png">
-<meta property="og:updated_time" content="2018-04-30T04:41:26.322Z">
+<meta property="og:updated_time" content="2018-04-30T04:46:20.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup MongoDB Server With Python">
 <meta name="twitter:description" content="Setup MongoDB Server With Python">
@@ -81,25 +81,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="Setup-MongoDB-Server-With-Python"><a href="#Setup-MongoDB-Server-With-Python" class="headerlink" title="Setup MongoDB Server With Python"></a>Setup MongoDB Server With Python</h3><a id="more"></a>
+<h5 id="1-Go-MongoDB-Atlas-and-set-your-server"><a href="#1-Go-MongoDB-Atlas-and-set-your-server" class="headerlink" title="1. Go MongoDB Atlas and set your server"></a>1. Go MongoDB Atlas and set your server</h5><p>1) <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="external">https://www.mongodb.com/cloud/atlas</a></p>
+<p>2) Register</p>
+<p>3) Set a free Cluster</p>
+<p>4) Add a new user to your cluster: username &amp; password</p>
+<p><img src="/articles/setmongodb/addnewclusteruser.png" alt="add new cluster user"></p>
+<p>5) Once you setup, you may see your cluster like this:</p>
+<p><img src="/articles/setmongodb/cluster.png" alt="cluster detail"></p>
+<p>6) Click “connect” to obtain your server link string, it may look like this:</p>
+<p>mongodb://analytics:<password>@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin</password></p>
+<h5 id="2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass"><a href="#2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass" class="headerlink" title="2. Download MongoDB Shell(it includes with MongoDB Comapass)"></a>2. Download MongoDB Shell(it includes with MongoDB Comapass)</h5><p>1) <a href="https://www.mongodb.com/" target="_blank" rel="external">https://www.mongodb.com/</a></p>
+<h5 id="3-Few-ways-to-upload-your-data-into-MongoDB-Altas"><a href="#3-Few-ways-to-upload-your-data-into-MongoDB-Altas" class="headerlink" title="3. Few ways to upload your data into MongoDB Altas"></a>3. Few ways to upload your data into MongoDB Altas</h5><p>Using Compass or by command line</p>
 <ol>
-<li><p>Go MongoDB Atlas and set your server</p>
-<p> 1) <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="external">https://www.mongodb.com/cloud/atlas</a></p>
-<p> 2) Register</p>
-<p> 3) Set a free Cluster</p>
-<p> 4) Add a new user to your cluster: username &amp; password</p>
-<p> <img src="/articles/setmongodb/addnewclusteruser.png" alt="add new cluster user"></p>
-<p> 5) Once you setup, you may see your cluster like this:</p>
-<p> <img src="/articles/setmongodb/cluster.png" alt="cluster detail"></p>
-<p> 6) Click “connect” to obtain your server link string, it may look like this:</p>
-<p> mongodb://analytics:<password>@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin</password></p>
-</li>
-<li><p>Download MongoDB Shell(it includes with MongoDB Comapass)</p>
-</li>
-<li><p>Few ways to upload your data into MongoDB Altas<br> Using Compass or by command line</p>
-</li>
-<li><p>Copy your server address and replace string <password></password></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure>
-</li>
+<li>Copy your server address and replace string <password><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure>
+</password></li>
 </ol>
 
       
