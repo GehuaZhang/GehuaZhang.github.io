@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/addnewclusteruser.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.png">
-<meta property="og:updated_time" content="2018-04-30T04:51:23.076Z">
+<meta property="og:updated_time" content="2018-04-30T05:00:58.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup MongoDB Server With Python">
 <meta name="twitter:description" content="Setup MongoDB Server With Python">
@@ -92,15 +92,15 @@
 <p><img src="/articles/setmongodb/cluster.png" width="300" height="200" alt="cluster detail" align="center"></p>
 <p>6) Click “connect” to obtain your server link string, it may look like this:</p>
 <p>mongodb://analytics:<password>@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin</password></p>
-<h5 id="2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass"><a href="#2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass" class="headerlink" title="2. Download MongoDB Shell(it includes with MongoDB Comapass)"></a>2. Download MongoDB Shell(it includes with MongoDB Comapass)</h5><p>1) <a href="https://www.mongodb.com/" target="_blank" rel="external">https://www.mongodb.com/</a></p>
-<h5 id="3-Link-Your-MongoDB-Shell-With-MongoDB-Atlas"><a href="#3-Link-Your-MongoDB-Shell-With-MongoDB-Atlas" class="headerlink" title="3. Link Your MongoDB Shell With MongoDB Atlas"></a>3. Link Your MongoDB Shell With MongoDB Atlas</h5><ol>
-<li>Few ways to upload your data into MongoDB Altas </li>
-</ol>
-<p>Using Compass or by command line</p>
-<ol>
-<li>Copy your server address and replace string <password><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure>
-</password></li>
-</ol>
+<h5 id="2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass"><a href="#2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass" class="headerlink" title="2. Download MongoDB Shell (it includes with MongoDB Comapass)"></a>2. Download MongoDB Shell (it includes with MongoDB Comapass)</h5><p>1) <a href="https://www.mongodb.com/" target="_blank" rel="external">https://www.mongodb.com/</a></p>
+<h5 id="3-Link-your-MongoDB-Shell-with-MongoDB-Atlas"><a href="#3-Link-your-MongoDB-Shell-with-MongoDB-Atlas" class="headerlink" title="3. Link your MongoDB Shell with MongoDB Atlas"></a>3. Link your MongoDB Shell with MongoDB Atlas</h5><p>1) Open you local MongoDB Compass, it requires some arguments to connect</p>
+<p>2) Go to your online MongoDB Atlas, click connect, then choose MongoDB Shell connecting, then copy the configuration string</p>
+<p>3) Paste the string into MongoDB Compass</p>
+<h5 id="4-Add-new-data-to-MongoDB-Altas"><a href="#4-Add-new-data-to-MongoDB-Altas" class="headerlink" title="4. Add new data to MongoDB Altas"></a>4. Add new data to MongoDB Altas</h5><p>1) Once your MongoDB Compass successfully connects to MongoDB Atlas, you may upload your data by Compass</p>
+<p>2) Click Collection -&gt; import data</p>
+<p>3) You may also use command line to upload data. This requires configure Environment Variables in System. </p>
+<h5 id="5-Link-To-Python"><a href="#5-Link-To-Python" class="headerlink" title="5. Link To Python"></a>5. Link To Python</h5><p>1) Get you client string from Atlas, and replace <password> with user password you set in step 1:</password></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure>
 
       
     </div>
