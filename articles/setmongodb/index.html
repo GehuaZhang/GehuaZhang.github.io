@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/addnewclusteruser.PNG">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/cluster.PNG">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/rela.png">
-<meta property="og:updated_time" content="2018-04-30T05:23:23.016Z">
+<meta property="og:updated_time" content="2018-04-30T05:24:01.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup MongoDB Server With Python">
 <meta name="twitter:description" content="Setup MongoDB Server With Python">
@@ -98,8 +98,8 @@
 <h4 id="4-Add-new-data-to-MongoDB-Altas"><a href="#4-Add-new-data-to-MongoDB-Altas" class="headerlink" title="4. Add new data to MongoDB Altas"></a>4. Add new data to MongoDB Altas</h4><p>  1) Once your MongoDB Compass successfully connects to MongoDB Atlas, you may upload your data by Compass</p>
 <p>  2) Click Collection -&gt; import data</p>
 <p>  3) You may also use command line to upload data. This requires configure Environment Variables in System. </p>
-<h4 id="5-Link-To-Python"><a href="#5-Link-To-Python" class="headerlink" title="5. Link To Python"></a>5. Link To Python</h4><p>1) Get you client string from Atlas, and replace <password> with user password you set in step 1:</password></p>
-<p>For example, my link string is like:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure></p>
+<h4 id="5-Link-To-Python"><a href="#5-Link-To-Python" class="headerlink" title="5. Link To Python"></a>5. Link To Python</h4><p>  1) Get you client string from Atlas, and replace <password> with user password you set in step 1:</password></p>
+<p>  For example, my link string is like:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure></p>
 <h4 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h4><p> <img src="/articles/setmongodb/rela.png" alt="relationship"></p>
 
       
