@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/machinelearningnote1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="This note is for Advanced Machine Learning Course.">
-<meta property="og:updated_time" content="2018-10-27T16:48:08.432Z">
+<meta property="og:updated_time" content="2018-10-27T17:01:02.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Note1">
 <meta name="twitter:description" content="This note is for Advanced Machine Learning Course.">
@@ -78,6 +78,27 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="This-note-is-for-Advanced-Machine-Learning-Course"><a href="#This-note-is-for-Advanced-Machine-Learning-Course" class="headerlink" title="This note is for Advanced Machine Learning Course."></a>This note is for Advanced Machine Learning Course.</h4><a id="more"></a>
+<h5 id="1-Markov-Chains"><a href="#1-Markov-Chains" class="headerlink" title="1. Markov Chains"></a>1. Markov Chains</h5><ul>
+<li><p>Irreducible</p>
+<p>  We can access any states from any states. $P(x_i=s|x_j=k)&gt;0$</p>
+</li>
+<li><p>Aperiodic</p>
+<p>  Transition matrix has non-zero diagonal.$P(x<em>i=s|x</em>{i-1}=s)&gt;0$</p>
+</li>
+<li><p>Stationary</p>
+<p>  $P_{s-&gt;t}$ is independent of n.</p>
+</li>
+<li><p>Unique Equilibrium</p>
+</li>
+</ul>
+<p>i) Stationary</p>
+<p>ii) Irreducible</p>
+<p>iii) Aperiodic</p>
+<ul>
+<li>Conditional Independent</li>
+</ul>
+<p>$p(x,y|z)=p(x|z)p(y|z)$</p>
+<p>#####</p>
 
       
     </div>
@@ -159,6 +180,23 @@
 
 
 <script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
