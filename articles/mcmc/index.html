@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/mcmc/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="A note of interpreting MCMC.">
-<meta property="og:updated_time" content="2018-10-30T06:13:55.943Z">
+<meta property="og:updated_time" content="2018-10-30T06:15:26.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markov Chain Monte Carlo">
 <meta name="twitter:description" content="A note of interpreting MCMC.">
@@ -79,7 +79,7 @@
       
         <h4 id="A-note-of-interpreting-MCMC"><a href="#A-note-of-interpreting-MCMC" class="headerlink" title="A note of interpreting MCMC."></a>A note of interpreting MCMC.</h4><a id="more"></a>
 <h3 id="1-Goal-of-MCMC"><a href="#1-Goal-of-MCMC" class="headerlink" title="1. Goal of MCMC"></a>1. Goal of MCMC</h3><h4 id="1-Basic-Probability-and-Inference"><a href="#1-Basic-Probability-and-Inference" class="headerlink" title="1) Basic Probability and Inference"></a>1) Basic Probability and Inference</h4><ul>
-<li>In machine learning, the most concerned problems are training and prediction. In both problems we encouter statistical inferences. If we want to predict $ X<em>{i} $ based on $ X</em>{i-1} $, the first thing is to estimate parameters $\theta$ based on previous data $X<em>{i-1}$: $Pr(\thea|X</em>{i-1})$</li>
+<li>In machine learning, the most concerned problems are training and prediction. In both problems we encouter statistical inferences. If we want to predict $\X<em>{i}$ based on $X</em>{i-1}$, the first thing is to estimate parameters $\theta$ based on previous data $X<em>{i-1}$: $Pr(\thea|X</em>{i-1})$</li>
 </ul>
 <h4 id="2-What-is-sampling"><a href="#2-What-is-sampling" class="headerlink" title="2) What is sampling?"></a>2) What is sampling?</h4><ul>
 <li><p>Sampling is basically, we hope to generate iid data from a given distribution. For example the simplest case is to generate data $X_i \sim Uniform([0,1])$, using Python <code>np.random.uniform(0,1,1000)</code> automatically generates 1000 data. Simliarly, <code>np.random.randn(1000)</code> generates 1000 standard normal data. But how computer works behind the function? A general way is <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling" target="_blank" rel="external">Inverse Transform Sampling</a>. Let’s say $X_i \sim p(x)$ with c.d.f $F(x)=Pr(X \le x)$, and inverse function of c.d.f $F^{-1}(x)$ exists, then we do the following: i) Generate a uniform random variable $\mu \sim Unif([0,1])$; ii) Calculate $X = F^{-1}(\mu)$; iii) Repeat n times and we have n iid $X_i$ which close to $p(x)$ distribution. </p>
