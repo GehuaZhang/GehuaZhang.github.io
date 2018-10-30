@@ -3,18 +3,18 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Machine Learning Note1 - Gehua Zhang&#39;s Blog</title>
+  <title>Markov Chain Monte Carlo - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This note is for Advanced Machine Learning Course.">
+  <meta name="description" content="A note of interpreting MCMC.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Note1">
-<meta property="og:url" content="https://gehuazhang.github.io/articles/machinelearningnote1/index.html">
+<meta property="og:title" content="Markov Chain Monte Carlo">
+<meta property="og:url" content="https://gehuazhang.github.io/articles/mcmc/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="This note is for Advanced Machine Learning Course.">
-<meta property="og:updated_time" content="2018-10-30T04:51:13.265Z">
+<meta property="og:description" content="A note of interpreting MCMC.">
+<meta property="og:updated_time" content="2018-10-30T04:57:39.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Note1">
-<meta name="twitter:description" content="This note is for Advanced Machine Learning Course.">
+<meta name="twitter:title" content="Markov Chain Monte Carlo">
+<meta name="twitter:description" content="A note of interpreting MCMC.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -50,7 +50,7 @@
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-machinelearningnote1" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-mcmc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -58,15 +58,15 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Machine Learning Note1
+      Markov Chain Monte Carlo
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/articles/machinelearningnote1/" class="article-date">
-  <time datetime="2018-10-27T20:22:10.000Z" itemprop="datePublished">2018-10-27</time>
+      <a href="/articles/mcmc/" class="article-date">
+  <time datetime="2018-10-30T04:52:48.000Z" itemprop="datePublished">2018-10-30</time>
 </a>
       
   <div class="article-category">
@@ -77,34 +77,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="This-note-is-for-Advanced-Machine-Learning-Course"><a href="#This-note-is-for-Advanced-Machine-Learning-Course" class="headerlink" title="This note is for Advanced Machine Learning Course."></a>This note is for Advanced Machine Learning Course.</h4><a id="more"></a>
-<hr>
-<h3 id="1-Markov-Chains"><a href="#1-Markov-Chains" class="headerlink" title="1. Markov Chains"></a>1. Markov Chains</h3><ul>
-<li><p>Irreducible</p>
-<p>We can access any states from any states. $Pr(x_i=s|x_j=k)&gt;0$</p>
-</li>
-<li><p>Aperiodic</p>
-<p>Transition matrix has non-zero diagonal.$Pr(x<em>i=s|x</em>{i-1}=s)&gt;0$</p>
-</li>
-<li><p>Stationary</p>
-<p>$P_{s-&gt;t}$ is independent of n.</p>
-</li>
-<li><p>Unique Equilibrium</p>
-<p>i) Stationary<br>ii) Irreducible<br>iii) Aperiodic</p>
-</li>
-<li><p>Conditional Independent</p>
-<p>$Pr(x,y|z)=Pr(x|z)Pr(y|z)$</p>
-</li>
-</ul>
-<h3 id="2-Hidden-Markov-Model"><a href="#2-Hidden-Markov-Model" class="headerlink" title="2. Hidden Markov Model"></a>2. Hidden Markov Model</h3><ul>
-<li><p>Structure</p>
-<p>Hidden Variable -(Trasition Matrix)-&gt; Hidden Variable -…-&gt; Hidden Variable</p>
-<p>Emission Probability = $p(y|x)$</p>
-</li>
-<li><p>Filtering Problem:Estimate Hidden Variable</p>
-<p>With emission matrix known:</p>
-<p>$$Q(k|x_n) = \frac {Pr(X_n|Z<em>n,X</em>{n-1})Pr(Z<em>n|X</em>{n-1})}{ \sum Pr(X_n|Z<em>n,X</em>{n-1}) Pr(Z<em>n|X</em>{n-1})}$$</p>
-</li>
+        <h4 id="A-note-of-interpreting-MCMC"><a href="#A-note-of-interpreting-MCMC" class="headerlink" title="A note of interpreting MCMC."></a>A note of interpreting MCMC.</h4><a id="more"></a>
+<h3 id="1-Goal-of-MCMC"><a href="#1-Goal-of-MCMC" class="headerlink" title="1. Goal of MCMC"></a>1. Goal of MCMC</h3><h4 id="What-is-sampling"><a href="#What-is-sampling" class="headerlink" title="What is sampling?"></a>What is sampling?</h4><ul>
+<li>ssss</li>
 </ul>
 
       
@@ -120,17 +95,9 @@
     
 <nav id="article-nav">
   
-    <a href="/articles/mcmc/" id="article-nav-newer" class="article-nav-link-wrap">
-      <div class="article-nav-title"><span>&lt;</span>&nbsp;
-        
-          Markov Chain Monte Carlo
-        
-      </div>
-    </a>
   
-  
-    <a href="/articles/installvatic-md/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Install Vatic on Mac&nbsp;<span>&gt;</span></div>
+    <a href="/articles/machinelearningnote1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Machine Learning Note1&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -175,7 +142,7 @@
 <script>
   var disqus_shortname = 'gehuazhangblog';
   
-  var disqus_url = 'https://gehuazhang.github.io/articles/machinelearningnote1/';
+  var disqus_url = 'https://gehuazhang.github.io/articles/mcmc/';
   
   (function(){
     var dsq = document.createElement('script');
@@ -195,23 +162,6 @@
 
 
 <script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
