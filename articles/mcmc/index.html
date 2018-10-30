@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/mcmc/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="A note for interpreting MCMC.">
-<meta property="og:updated_time" content="2018-10-30T06:51:28.578Z">
+<meta property="og:updated_time" content="2018-10-30T17:10:49.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markov Chain Monte Carlo">
 <meta name="twitter:description" content="A note for interpreting MCMC.">
@@ -78,6 +78,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="A-note-for-interpreting-MCMC"><a href="#A-note-for-interpreting-MCMC" class="headerlink" title="A note for interpreting MCMC."></a>A note for interpreting MCMC.</h4><a id="more"></a>
+<hr>
 <h3 id="1-Goal-of-MCMC"><a href="#1-Goal-of-MCMC" class="headerlink" title="1. Goal of MCMC"></a>1. Goal of MCMC</h3><h4 id="1-Basic-Probability-and-Inference"><a href="#1-Basic-Probability-and-Inference" class="headerlink" title="1) Basic Probability and Inference"></a>1) Basic Probability and Inference</h4><ul>
 <li>In machine learning, the most concerned problems are training and prediction. In both problems we encounter statistical inferences. If we want to predict $X_{i}$ based on $X_{i-1}$:$P(X_{i}|X_{i-1})$, the first is to estimate parameters $\theta$ based on previous data $X_{i-1}$: $P(\theta|X_{i-1})$ and the second is to estimate $X_i$ based on previous $\theta$: $P(X_{i}|\theta)$. Formally, we call $P(\theta|X_{i-1})$ as posterior, $P(\theta)$ as prior. Our goal is to estimate prior and posterior. But wait, it’s often impossible to analytically obtain those conditional probabilities. Here comes a method – we sample them from historical data. </li>
 </ul>
@@ -93,7 +94,16 @@
 <li><p><em><strong>Sample methods include MCMC:</strong></em> Metropolis-Hasting Algorithm, Gibbs Sampling, Monte Carlo EM, etc.</p>
 </li>
 </ul>
-<h3 id="2-Inside-MCMC"><a href="#2-Inside-MCMC" class="headerlink" title="2. Inside MCMC"></a>2. Inside MCMC</h3><h4 id="1-What-kind-of-Markov-Chain-is-in-MCMC"><a href="#1-What-kind-of-Markov-Chain-is-in-MCMC" class="headerlink" title="1) What kind of Markov Chain is in MCMC?"></a>1) What kind of Markov Chain is in MCMC?</h4>
+<h3 id="2-Inside-MCMC"><a href="#2-Inside-MCMC" class="headerlink" title="2. Inside MCMC"></a>2. Inside MCMC</h3><h4 id="1-What-kind-of-Markov-Chain-is-in-MCMC"><a href="#1-What-kind-of-Markov-Chain-is-in-MCMC" class="headerlink" title="1) What kind of Markov Chain is in MCMC?"></a>1) What kind of Markov Chain is in MCMC?</h4><ul>
+<li>First order Markov Chain assumes that next state only conditions on previous state, and we call it “conditional independent”. As you may know each state of a Markov Chain has its own distribution but for a <a href="https://en.wikipedia.org/wiki/Markov_chain#Finite_state_space" target="_blank" rel="external">stationary Markov Chain</a> (Irreducible and Aperiodic) in the long run its distribution is invariant. Hence the problem becomes simple, find a stationary Markov Chain and start sample after it shows stationary. Question: How to find a stationary Markov Chain?</li>
+</ul>
+<h4 id="2-How-to-use-Monte-Carlo-here"><a href="#2-How-to-use-Monte-Carlo-here" class="headerlink" title="2) How to use Monte Carlo here?"></a>2) How to use Monte Carlo here?</h4><ul>
+<li>Monte Carlo is nothing but iterations. Example: If we observe a person doing random walks, the place with more footsteps, we say it is the place he/she is more likely to go. Similarly here, no matter where we starts, after many steps (iterations) we obtain a distribution of samples and statistically we say it simulates our variables’ density function.</li>
+</ul>
+<h4 id="3-Combine-Markov-Chain-and-Monte-Carlo"><a href="#3-Combine-Markov-Chain-and-Monte-Carlo" class="headerlink" title="3) Combine Markov Chain and Monte Carlo"></a>3) Combine Markov Chain and Monte Carlo</h4><ul>
+<li>As stated above, stationary Markov Chain has a nice property that after many iterations its distribution stays the same. First we randomly sample our variables from given data and we feed them to Markov Chain then we iterate Markov Chain for many many times.</li>
+</ul>
+
       
     </div>
     
