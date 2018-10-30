@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/mcmc/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="A note of interpreting MCMC.">
-<meta property="og:updated_time" content="2018-10-30T04:57:39.871Z">
+<meta property="og:updated_time" content="2018-10-30T05:05:46.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markov Chain Monte Carlo">
 <meta name="twitter:description" content="A note of interpreting MCMC.">
@@ -78,8 +78,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="A-note-of-interpreting-MCMC"><a href="#A-note-of-interpreting-MCMC" class="headerlink" title="A note of interpreting MCMC."></a>A note of interpreting MCMC.</h4><a id="more"></a>
-<h3 id="1-Goal-of-MCMC"><a href="#1-Goal-of-MCMC" class="headerlink" title="1. Goal of MCMC"></a>1. Goal of MCMC</h3><h4 id="What-is-sampling"><a href="#What-is-sampling" class="headerlink" title="What is sampling?"></a>What is sampling?</h4><ul>
-<li>ssss</li>
+<h3 id="1-Goal-of-MCMC"><a href="#1-Goal-of-MCMC" class="headerlink" title="1. Goal of MCMC"></a>1. Goal of MCMC</h3><h4 id="1-What-is-sampling"><a href="#1-What-is-sampling" class="headerlink" title="1) What is sampling?"></a>1) What is sampling?</h4><ul>
+<li>Sampling is basically, we hope to generate data from a given distribution. For example, the simplest case is to generate data $X_i \sim Uniform([0,1])$, using Python <code>np.random.uniform(0,1,1000)</code></li>
 </ul>
 
       
@@ -162,6 +162,23 @@
 
 
 <script src="/js/script.js"></script>
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
