@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/mcmc/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="A note for interpreting MCMC.">
-<meta property="og:updated_time" content="2018-10-30T17:10:49.574Z">
+<meta property="og:updated_time" content="2018-11-04T20:39:11.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markov Chain Monte Carlo">
 <meta name="twitter:description" content="A note for interpreting MCMC.">
@@ -94,14 +94,49 @@
 <li><p><em><strong>Sample methods include MCMC:</strong></em> Metropolis-Hasting Algorithm, Gibbs Sampling, Monte Carlo EM, etc.</p>
 </li>
 </ul>
-<h3 id="2-Inside-MCMC"><a href="#2-Inside-MCMC" class="headerlink" title="2. Inside MCMC"></a>2. Inside MCMC</h3><h4 id="1-What-kind-of-Markov-Chain-is-in-MCMC"><a href="#1-What-kind-of-Markov-Chain-is-in-MCMC" class="headerlink" title="1) What kind of Markov Chain is in MCMC?"></a>1) What kind of Markov Chain is in MCMC?</h4><ul>
+<h3 id="2-Glimpse-MCMC"><a href="#2-Glimpse-MCMC" class="headerlink" title="2. Glimpse MCMC"></a>2. Glimpse MCMC</h3><h4 id="1-What-kind-of-Markov-Chain-is-in-MCMC"><a href="#1-What-kind-of-Markov-Chain-is-in-MCMC" class="headerlink" title="1) What kind of Markov Chain is in MCMC?"></a>1) What kind of Markov Chain is in MCMC?</h4><ul>
 <li>First order Markov Chain assumes that next state only conditions on previous state, and we call it “conditional independent”. As you may know each state of a Markov Chain has its own distribution but for a <a href="https://en.wikipedia.org/wiki/Markov_chain#Finite_state_space" target="_blank" rel="external">stationary Markov Chain</a> (Irreducible and Aperiodic) in the long run its distribution is invariant. Hence the problem becomes simple, find a stationary Markov Chain and start sample after it shows stationary. Question: How to find a stationary Markov Chain?</li>
 </ul>
 <h4 id="2-How-to-use-Monte-Carlo-here"><a href="#2-How-to-use-Monte-Carlo-here" class="headerlink" title="2) How to use Monte Carlo here?"></a>2) How to use Monte Carlo here?</h4><ul>
-<li>Monte Carlo is nothing but iterations. Example: If we observe a person doing random walks, the place with more footsteps, we say it is the place he/she is more likely to go. Similarly here, no matter where we starts, after many steps (iterations) we obtain a distribution of samples and statistically we say it simulates our variables’ density function.</li>
+<li>Monte Carlo is nothing but iterations. Example: If we observe a person doing random walks, the place with more footsteps, we say it is the place he/she is more likely to go. Similarly here, no matter where we start, after many steps (iterations) we obtain a distribution of samples and statistically we say it simulates our variables’ density function.</li>
 </ul>
 <h4 id="3-Combine-Markov-Chain-and-Monte-Carlo"><a href="#3-Combine-Markov-Chain-and-Monte-Carlo" class="headerlink" title="3) Combine Markov Chain and Monte Carlo"></a>3) Combine Markov Chain and Monte Carlo</h4><ul>
 <li>As stated above, stationary Markov Chain has a nice property that after many iterations its distribution stays the same. First we randomly sample our variables from given data and we feed them to Markov Chain then we iterate Markov Chain for many many times.</li>
+</ul>
+<h3 id="3-Inside-MCMC"><a href="#3-Inside-MCMC" class="headerlink" title="3. Inside MCMC"></a>3. Inside MCMC</h3><h4 id="1-How-to-find-stationary-Markov-Chain"><a href="#1-How-to-find-stationary-Markov-Chain" class="headerlink" title="1) How to find stationary Markov Chain?"></a>1) How to find stationary Markov Chain?</h4><ul>
+<li>To apply MCMC, the first thing is to find a decent Markov Matrix. This matrix should be both irreducible (the graph is closed, we cannot have infinity possible states) and aperiodic (our graph wouldn’t stuck in some states forever). </li>
+</ul>
+<h4 id="2-Intuition-of-MCMC"><a href="#2-Intuition-of-MCMC" class="headerlink" title="2) Intuition of MCMC"></a>2) Intuition of MCMC</h4><ul>
+<li>The key of MCMC is to find this transition matrix of Markov Chain: $p(x_{i+1}|x_i)$, where $x_i$ are  previous samples and we want to condition on them to sample next $x_{i+1}$. In math, $p(x_{i+1})=\sum p(x_i)p(x_{i+1}|x_i)$ or $p(x_{i+1})=\int p(x_i)p(x_{i+1}|x_i)$. Once we have the conditional probability $p(x_{i+1}|x_i)$ it’s easy to sample next variable $x_{i+1}$. But the only thing we know is the sampling density $p(x)$, how to find its conditional density $p(x_{i+1}|x_{i})$? Here are two ways:</li>
+</ul>
+<h3 id="4-MCMC-Algorithms"><a href="#4-MCMC-Algorithms" class="headerlink" title="4. MCMC Algorithms"></a>4. MCMC Algorithms</h3><h4 id="1-Metropolis-Hasting-Algorithm"><a href="#1-Metropolis-Hasting-Algorithm" class="headerlink" title="1) Metropolis-Hasting Algorithm"></a>1) Metropolis-Hasting Algorithm</h4><ul>
+<li><p><em><strong>Intuition:</strong></em> Since we don’t know $p(x_{i+1}|x_{i})$, we construct a known density $q(x_{i+1}|x_{i})$ and hope to use $q$ to simulate the distribution of $p$. An intuitive way is to sample based on $q$ then decide if reject/accept it. So here is Workflow: we observe $x_{i}$, we apply $x_{i}$ to a known density $q(x_{i+1}|x_{i})$ to obtain a new sample prediction $x_{i+1}$, and we feed $x_{i+1}$ to a decision function $A(x_{i},x_{i+1})$ to see if $x_{i+1}$ is suitable. If it is, we keep $x_{i+1}$ and repeat above procedures; If not, we reject $x_{i+1}$ (with some probability still accept) and we stay in $x_i$, then we repeat above procedures. So how do we define a decision function?</p>
+</li>
+<li><p><em><strong>Math:</strong></em> Let $A(x_{i},x_{i+1})=\text{min}[1,\frac{p(x_{i+1})q(x_{i}|x_{i+1})}{p(x_i)q(x_{i+1}|x_i)}]$.  Then $p(x_{i+1}|x_{i}) = q(x_{i+1}|x_{i})p(x_{i})A(x_{i},x_{i+1})$.</p>
+</li>
+</ul>
+<ul>
+<li><p><em><strong>Interpretation:</strong></em> Let’s have a closer look at $A$. When the second part of $A$ is greater than $1$, $A$ would always be $1$. This is to say, if $p(x_{i+1})q(x_{i}|x_{i+1}) &gt; p(x_i)q(x_{i+1}|x_i)$, we have $A = 1$ and our model would be $p(x_{i+1}|x_{i}) = q(x_{i+1}|x_{i})p(x_{i})$, that is, we accept $x_{i+1}$ for certain, hence we generate a new sample $x_{i+1}$. The other case, if $p(x_{i+1})q(x_{i}|x_{i+1}) &lt; p(x_i)q(x_{i+1}|x_i)$, our $A$ would be a value between $0$ and $1$, and it is proportional to $\frac{p(x_{i+1})}{p(x_i)}$. This means, the lager probability density the next sample ($p(x_{i+1})$) has, the higher the proportion would be, thus the larger $A$ would be, thus the higher probability we accept this new sample. As for how to choose proposal density $q$, usually we apply Gaussian density.</p>
+<ul>
+<li><p><em><strong>Check MCMC:</strong></em> How do we know MH algorithm is a MCMC algorithm? Check if $p(x_{i+1}|x_i)$ is both irreducible and aperiodic.</p>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1. Randomly generate x0</div><div class="line">2. for i in N:</div><div class="line">    generate u from uniform distribution</div><div class="line">    generate x_new from q(x_new|x_old)</div><div class="line">    if u &lt; A(x_old, x_new):</div><div class="line">        x_new accepted</div><div class="line">        x_(i+1) = x_new</div><div class="line">    else:</div><div class="line">        x_new rejected</div><div class="line">        x_(i+1) = x_old</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-Gibbs-Sampling"><a href="#2-Gibbs-Sampling" class="headerlink" title="2) Gibbs Sampling"></a>2) Gibbs Sampling</h4><ul>
+<li><em><strong>Intuition:</strong></em> Gibss sampling is a special case of Metropolis-Hasting Algorithm. Same as above, we want to use a known density $q$ to simulate $p(x_{i+1}|x_i)$, and decide if we accept or reject. However in Gibbs sampling, we may want to find a special $q$ that $A$ always equal to $1$, which, we always accept samples in this case.</li>
+</ul>
+<ul>
+<li><p><em><strong>Math:</strong></em> Let $p(x_{i+1}|x_{i})=q(x_{i+1}|x_{i})p(x_{i})$, and we generate our proposal: $q(x_{i+1}|x_{i}) = p(x_{i+1}|x_{-i})$ if $x_{-(i+1)}=x_{-i}$, where $x_{-i}$ is previous information that around $x_{i}$ but exclude $x_{i}$.</p>
+</li>
+<li><p><em><strong>Interpretation:</strong></em> For $x_{-i}$ and $x_{-(i+1)}$, negative here means the data exclude $i$ or $i+1$. Since $x_i$ is the $i^{th}$ observed data, $x_i$ is also a vector of $j$ dimension that contains $j$ multi-variable $x_j$. The rule is: $x_{i,1}=x_{i-1,2}, x_{i-1,3}, x_{i-1,4}, \dots x_{i-1,d}$, a.k.a. if $x_{i,j}$ is the first term of its vector, then $x_{-i}$ stands for the information given by previous rows vector $x_{i-1}$ and drop first term.  $x_{i,j} = x_{i,1}, x_{i,2}, x_{i,3}, \dots x_{i,j-1}, x_{i-1,j+1}, x_{i-1,j+2}, \dots x_{i-1,d}$, a.k.a if $x_{i,j}$ is in the middle of the vector, $x_{-i}$ means the information given by this sample before $j^{th}$ variable, plus the information given by last sample $x_{i-1}$ after $j^{th}$ variable. If we build our proposal density like this, our decision function would always be $1$. </p>
+<ul>
+<li><em><strong>Notes</strong></em> We update $x_{i,j}$ immediately once we calculated them and plug them into the next value’s calculation.</li>
+</ul>
+</li>
 </ul>
 
       
