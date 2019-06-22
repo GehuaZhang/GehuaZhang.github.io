@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>Setup MongoDB Server With Python - Gehua Zhang&#39;s Blog</title>
@@ -11,10 +11,11 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/setmongodb/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Setup MongoDB Atlas, Compass and PyMongo">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/addnewclusteruser.jpg">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/detail.jpg">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/setmongodb/rela.jpg">
-<meta property="og:updated_time" content="2018-04-30T06:23:22.979Z">
+<meta property="og:updated_time" content="2018-04-30T06:23:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Setup MongoDB Server With Python">
 <meta name="twitter:description" content="Setup MongoDB Atlas, Compass and PyMongo">
@@ -23,13 +24,13 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <header id="header">
@@ -82,7 +83,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Setup-MongoDB-Atlas-Compass-and-PyMongo"><a href="#Setup-MongoDB-Atlas-Compass-and-PyMongo" class="headerlink" title="Setup MongoDB Atlas, Compass and PyMongo"></a>Setup MongoDB Atlas, Compass and PyMongo</h4><a id="more"></a>
-<h4 id="1-Go-MongoDB-Atlas-and-set-your-server"><a href="#1-Go-MongoDB-Atlas-and-set-your-server" class="headerlink" title="1. Go MongoDB Atlas and set your server"></a>1. Go MongoDB Atlas and set your server</h4><p>  1) <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="external">https://www.mongodb.com/cloud/atlas</a></p>
+<h4 id="1-Go-MongoDB-Atlas-and-set-your-server"><a href="#1-Go-MongoDB-Atlas-and-set-your-server" class="headerlink" title="1. Go MongoDB Atlas and set your server"></a>1. Go MongoDB Atlas and set your server</h4><p>  1) <a href="https://www.mongodb.com/cloud/atlas" target="_blank" rel="noopener">https://www.mongodb.com/cloud/atlas</a></p>
 <p>  2) Register</p>
 <p>  3) Set a free Cluster</p>
 <p>  4) Add a new user to your cluster: username &amp; password</p>
@@ -91,7 +92,7 @@
 <p>  <img src="/articles/setmongodb/detail.jpg" alt="cluster detail"></p>
 <p>  6) Click “connect” to obtain your server link string, it may look like this:</p>
 <p>  mongodb://analytics:<password>@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin</password></p>
-<h4 id="2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass"><a href="#2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass" class="headerlink" title="2. Download MongoDB Shell (it includes with MongoDB Comapass)"></a>2. Download MongoDB Shell (it includes with MongoDB Comapass)</h4><p>  1) <a href="https://www.mongodb.com/" target="_blank" rel="external">https://www.mongodb.com/</a></p>
+<h4 id="2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass"><a href="#2-Download-MongoDB-Shell-it-includes-with-MongoDB-Comapass" class="headerlink" title="2. Download MongoDB Shell (it includes with MongoDB Comapass)"></a>2. Download MongoDB Shell (it includes with MongoDB Comapass)</h4><p>  1) <a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></p>
 <h4 id="3-Link-your-MongoDB-Shell-with-MongoDB-Atlas"><a href="#3-Link-your-MongoDB-Shell-with-MongoDB-Atlas" class="headerlink" title="3. Link your MongoDB Shell with MongoDB Atlas"></a>3. Link your MongoDB Shell with MongoDB Atlas</h4><p>  1) Open you local MongoDB Compass, it requires some arguments to connect</p>
 <p>  2) Go to your online MongoDB Atlas, click connect, then choose MongoDB Shell connecting, then copy the configuration string</p>
 <p>  3) Paste the string into MongoDB Compass</p>
@@ -99,7 +100,7 @@
 <p>  2) Click Collection -&gt; import data</p>
 <p>  3) You may also use command line to upload data. This requires configure Environment Variables in System. </p>
 <h4 id="5-Link-To-Python"><a href="#5-Link-To-Python" class="headerlink" title="5. Link To Python"></a>5. Link To Python</h4><p>  1) Get you client string from Atlas, and replace <password> with user password you set in step 1:</password></p>
-<p>  For example, my link string is like:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from pymongo import MongoClient</div><div class="line"></div><div class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</div><div class="line"></div><div class="line">print(client.mflix)</div></pre></td></tr></table></figure></p>
+<p>  For example, my link string is like:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient(&quot;mongodb://analytics:&lt;PASSWORD&gt;@mflix-shard-00-00-ybpql.mongodb.net:27017,mflix-shard-00-01-ybpql.mongodb.net:27017,mflix-shard-00-02-ybpql.mongodb.net:27017/test?ssl=true&amp;replicaSet=mflix-shard-0&amp;authSource=admin&quot;)</span><br><span class="line"></span><br><span class="line">print(client.mflix)</span><br></pre></td></tr></table></figure></p>
 <h4 id="Relation"><a href="#Relation" class="headerlink" title="Relation"></a>Relation</h4><p> <img src="/articles/setmongodb/rela.jpg" alt="relationship"></p>
 
       
@@ -161,7 +162,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Gehua Zhang&nbsp;
+      &copy; 2019 Gehua Zhang&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

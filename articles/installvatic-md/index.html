@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>Install Vatic on Mac - Gehua Zhang&#39;s Blog</title>
@@ -11,7 +11,8 @@
 <meta property="og:url" content="https://gehuazhang.github.io/articles/installvatic-md/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Vatic is an image and video label software.This is the tutorial for installing Vatic on your Mac. An online JS version of Vatic can be found here: https://dbolkensteyn.github.io/vatic.js/">
-<meta property="og:updated_time" content="2018-09-05T04:27:30.936Z">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-05T04:27:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install Vatic on Mac">
 <meta name="twitter:description" content="Vatic is an image and video label software.This is the tutorial for installing Vatic on your Mac. An online JS version of Vatic can be found here: https://dbolkensteyn.github.io/vatic.js/">
@@ -19,13 +20,13 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/ptserif/main.css" rel="stylesheet" type="text/css">
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 </head>
-
+</html>
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
     <header id="header">
@@ -77,29 +78,29 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Vatic-is-an-image-and-video-label-software"><a href="#Vatic-is-an-image-and-video-label-software" class="headerlink" title="Vatic is an image and video label software."></a>Vatic is an image and video label software.</h4><p>This is the tutorial for installing Vatic on your Mac. An online JS version of Vatic can be found here: <a href="https://dbolkensteyn.github.io/vatic.js/" target="_blank" rel="external">https://dbolkensteyn.github.io/vatic.js/</a></p>
+        <h4 id="Vatic-is-an-image-and-video-label-software"><a href="#Vatic-is-an-image-and-video-label-software" class="headerlink" title="Vatic is an image and video label software."></a>Vatic is an image and video label software.</h4><p>This is the tutorial for installing Vatic on your Mac. An online JS version of Vatic can be found here: <a href="https://dbolkensteyn.github.io/vatic.js/" target="_blank" rel="noopener">https://dbolkensteyn.github.io/vatic.js/</a></p>
 <a id="more"></a>
 <p>Reference: </p>
-<p><a href="https://glentimemaker.github.io/Install-and-Use-Vatic-Annotation-Tool/" target="_blank" rel="external">https://glentimemaker.github.io/Install-and-Use-Vatic-Annotation-Tool/</a></p>
-<p><a href="https://github.com/cvondrick/vatic" target="_blank" rel="external">https://github.com/cvondrick/vatic</a> (Offcial)</p>
+<p><a href="https://glentimemaker.github.io/Install-and-Use-Vatic-Annotation-Tool/" target="_blank" rel="noopener">https://glentimemaker.github.io/Install-and-Use-Vatic-Annotation-Tool/</a></p>
+<p><a href="https://github.com/cvondrick/vatic" target="_blank" rel="noopener">https://github.com/cvondrick/vatic</a> (Offcial)</p>
 <p>Following steps are tested on Mac OS. For windows system, you may need to install some command lines and add them to PATH.</p>
 <p>String <code>&lt;???***???&gt;</code> should be replaced by your own address/filename.</p>
 <hr>
-<h3 id="1-Install-Docker"><a href="#1-Install-Docker" class="headerlink" title="1.Install Docker"></a>1.Install Docker</h3><p>Install Docker from <a href="https://www.docker.com/" target="_blank" rel="external">https://www.docker.com/</a></p>
+<h3 id="1-Install-Docker"><a href="#1-Install-Docker" class="headerlink" title="1.Install Docker"></a>1.Install Docker</h3><p>Install Docker from <a href="https://www.docker.com/" target="_blank" rel="noopener">https://www.docker.com/</a></p>
 <p>Register, Login, Start Docker.</p>
 <h3 id="2-Creat-Local-Folder"><a href="#2-Creat-Local-Folder" class="headerlink" title="2.Creat Local Folder"></a>2.Creat Local Folder</h3><p>Creat a folder named “data”. Put videos inside, then creat a folder named “frames” inside the folder “data”.</p>
 <p>Open terminal, cd to your “data”‘s parent folder. Do following:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DATA_DIR=`pwd`/data/</div><div class="line">mkdir -p $DATA_DIR</div></pre></td></tr></table></figure>
-<h3 id="3-Start-Vatic-Server-MySQL-and-Apache"><a href="#3-Start-Vatic-Server-MySQL-and-Apache" class="headerlink" title="3.Start Vatic Server, MySQL and Apache"></a>3.Start Vatic Server, MySQL and Apache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">docker run -it -p 8080:80 -v $DATA_DIR:/home/vagrant/vagrant_data jldowns/vatic-docker-contrib:0.1</div><div class="line"></div><div class="line">/home/vagrant/start_services.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DATA_DIR=`pwd`/data/</span><br><span class="line">mkdir -p $DATA_DIR</span><br></pre></td></tr></table></figure>
+<h3 id="3-Start-Vatic-Server-MySQL-and-Apache"><a href="#3-Start-Vatic-Server-MySQL-and-Apache" class="headerlink" title="3.Start Vatic Server, MySQL and Apache"></a>3.Start Vatic Server, MySQL and Apache</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8080:80 -v $DATA_DIR:/home/vagrant/vagrant_data jldowns/vatic-docker-contrib:0.1</span><br><span class="line"></span><br><span class="line">/home/vagrant/start_services.sh</span><br></pre></td></tr></table></figure>
 <p>Then cd to the vatic path:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /home/vagrant/vatic</div></pre></td></tr></table></figure>
-<h3 id="4-Extract-frames-from-video"><a href="#4-Extract-frames-from-video" class="headerlink" title="4.Extract frames from video"></a>4.Extract frames from video</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">turkic extract /home/vagrant/vagrant_data/&lt;???video_name.mp4???&gt; /home/vagrant/vagrant_data/frames/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /home/vagrant/vatic</span><br></pre></td></tr></table></figure>
+<h3 id="4-Extract-frames-from-video"><a href="#4-Extract-frames-from-video" class="headerlink" title="4.Extract frames from video"></a>4.Extract frames from video</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turkic extract /home/vagrant/vagrant_data/&lt;???video_name.mp4???&gt; /home/vagrant/vagrant_data/frames/</span><br></pre></td></tr></table></figure>
 <p>Now you can use <code>turkic</code> command to operate your videos and labels.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">~/vatic# turkic                                              </div><div class="line">     compensate   Pay workers                                       </div><div class="line">         delete   Deletes an already imported video                 </div><div class="line">       donation   Report status on donations                        </div><div class="line">           dump   Dumps the tracking data                           </div><div class="line">          email   Email a worker                                    </div><div class="line">        extract   Decompresses an entire video into frames          </div><div class="line">           find   Provides a URL to fix annotations during vetting  </div><div class="line">   formatframes   Formats existing frames                           </div><div class="line">     invalidate   Invalidates and rewspawn tasks                    </div><div class="line">           list   List all videos loaded                            </div><div class="line">           load   Imports a set of video frames                     </div><div class="line">        publish   Launch work                                       </div><div class="line">         sample   Samples the performance by worker                 </div><div class="line">          setup   Setup the application                             </div><div class="line">         status   Report job status                                 </div><div class="line">      visualize   Highlights a video sequence                       </div><div class="line">        workers   Manage the workers</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/vatic# turkic                                              </span><br><span class="line">     compensate   Pay workers                                       </span><br><span class="line">         delete   Deletes an already imported video                 </span><br><span class="line">       donation   Report status on donations                        </span><br><span class="line">           dump   Dumps the tracking data                           </span><br><span class="line">          email   Email a worker                                    </span><br><span class="line">        extract   Decompresses an entire video into frames          </span><br><span class="line">           find   Provides a URL to fix annotations during vetting  </span><br><span class="line">   formatframes   Formats existing frames                           </span><br><span class="line">     invalidate   Invalidates and rewspawn tasks                    </span><br><span class="line">           list   List all videos loaded                            </span><br><span class="line">           load   Imports a set of video frames                     </span><br><span class="line">        publish   Launch work                                       </span><br><span class="line">         sample   Samples the performance by worker                 </span><br><span class="line">          setup   Setup the application                             </span><br><span class="line">         status   Report job status                                 </span><br><span class="line">      visualize   Highlights a video sequence                       </span><br><span class="line">        workers   Manage the workers</span><br></pre></td></tr></table></figure>
 <p>More <code>turkic</code> command on offcial website.</p>
-<h3 id="5-Load-amp-Publish"><a href="#5-Load-amp-Publish" class="headerlink" title="5.Load &amp; Publish"></a>5.Load &amp; Publish</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">turkic load &lt;???Job ID???&gt; /home/vagrant/vagrant_data/frames/ &lt;???LabelName1 LabelName2 LabelName3..???&gt; --offline</div></pre></td></tr></table></figure>
+<h3 id="5-Load-amp-Publish"><a href="#5-Load-amp-Publish" class="headerlink" title="5.Load &amp; Publish"></a>5.Load &amp; Publish</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turkic load &lt;???Job ID???&gt; /home/vagrant/vagrant_data/frames/ &lt;???LabelName1 LabelName2 LabelName3..???&gt; --offline</span><br></pre></td></tr></table></figure>
 <h3 id="6-Reopen-Closed-Vatic"><a href="#6-Reopen-Closed-Vatic" class="headerlink" title="6.Reopen Closed Vatic:"></a>6.Reopen Closed Vatic:</h3><p>Reopen your Docker then cd to your folder path:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DATA_DIR=`pwd`/data/</div><div class="line">mkdir -p $DATA_DIR</div><div class="line">docker run -it -p 8080:80 -v $DATA_DIR:/home/vagrant/vagrant_data jldowns/vatic-docker-contrib:0.1</div><div class="line">/home/vagrant/start_services.sh</div><div class="line">cd /home/vagrant/vatic</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_DIR=`pwd`/data/</span><br><span class="line">mkdir -p $DATA_DIR</span><br><span class="line">docker run -it -p 8080:80 -v $DATA_DIR:/home/vagrant/vagrant_data jldowns/vatic-docker-contrib:0.1</span><br><span class="line">/home/vagrant/start_services.sh</span><br><span class="line">cd /home/vagrant/vatic</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -160,7 +161,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Gehua Zhang&nbsp;
+      &copy; 2019 Gehua Zhang&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
