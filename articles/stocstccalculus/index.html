@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>StocstcCalculus - Gehua Zhang&#39;s Blog</title>
+  <title>Derive Black-Scholes Formula - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Stochastic Calculus">
+  <meta name="description" content="Basic Stochastic Calculus">
 <meta name="keywords" content="Mathematics">
 <meta property="og:type" content="article">
-<meta property="og:title" content="StocstcCalculus">
+<meta property="og:title" content="Derive Black-Scholes Formula">
 <meta property="og:url" content="https://gehuazhang.github.io/articles/stocstccalculus/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="Stochastic Calculus">
+<meta property="og:description" content="Basic Stochastic Calculus">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-20T23:24:32.735Z">
+<meta property="og:updated_time" content="2019-11-20T23:29:25.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="StocstcCalculus">
-<meta name="twitter:description" content="Stochastic Calculus">
+<meta name="twitter:title" content="Derive Black-Scholes Formula">
+<meta name="twitter:description" content="Basic Stochastic Calculus">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,7 +60,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      StocstcCalculus
+      Derive Black-Scholes Formula
     </h1>
   
 
@@ -75,15 +75,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Stochastic-Calculus"><a href="#Stochastic-Calculus" class="headerlink" title="Stochastic Calculus"></a>Stochastic Calculus</h4><a id="more"></a>
-<h3 id="Brownian-Motion"><a href="#Brownian-Motion" class="headerlink" title="Brownian Motion"></a>Brownian Motion</h3><h5 id="1-Standard-Brownian-Motion-Wiener-Process"><a href="#1-Standard-Brownian-Motion-Wiener-Process" class="headerlink" title="1. Standard Brownian Motion = Wiener Process"></a>1. Standard Brownian Motion = Wiener Process</h5><p>1) $W_0=0$</p>
+        <h4 id="Basic-Stochastic-Calculus"><a href="#Basic-Stochastic-Calculus" class="headerlink" title="Basic Stochastic Calculus"></a>Basic Stochastic Calculus</h4><a id="more"></a>
+<h3 id="I-Brownian-Motion"><a href="#I-Brownian-Motion" class="headerlink" title="I. Brownian Motion"></a>I. Brownian Motion</h3><h4 id="1-Standard-Brownian-Motion-Wiener-Process"><a href="#1-Standard-Brownian-Motion-Wiener-Process" class="headerlink" title="1. Standard Brownian Motion = Wiener Process"></a>1. Standard Brownian Motion = Wiener Process</h4><p>1) $W_0=0$</p>
 <p>2) $W_{t_n}-W_{t_k} \sim N(0,t_n-t_k)$</p>
 <p>3) Independent increments</p>
-<h5 id="2-Geometric-Brownian-Motion"><a href="#2-Geometric-Brownian-Motion" class="headerlink" title="2. Geometric Brownian Motion"></a>2. Geometric Brownian Motion</h5><p>$$dS_t = S_{t_n}-S_{t_{n-1}} = \mu S_t dt + \sigma S_t \sqrt{dt}$$</p>
+<h4 id="2-Geometric-Brownian-Motion"><a href="#2-Geometric-Brownian-Motion" class="headerlink" title="2. Geometric Brownian Motion"></a>2. Geometric Brownian Motion</h4><p>$$dS_t = S_{t_n}-S_{t_{n-1}} = \mu S_t dt + \sigma S_t \sqrt{dt}$$</p>
 <p>Since $dW_t = W_{t_n}-W_{t_k} \sim N(0,dt)$, we say $dW_t=\sqrt{dt}$, plug in:</p>
-<p>\begin{equation}</p>
 <p>$$dS_t=\mu S_t dt + \sigma S_t dW_t$$</p>
-<p>\end{equation}</p>
+<h3 id="II-Stochastic-Calculus"><a href="#II-Stochastic-Calculus" class="headerlink" title="II. Stochastic Calculus"></a>II. Stochastic Calculus</h3><h4 id="1-Ito-Lemma"><a href="#1-Ito-Lemma" class="headerlink" title="1. Ito Lemma"></a>1. Ito Lemma</h4><p>Assume vanilla option is a function of underlying stock price $S_t$ and time $t$: $V(S_t,t)$, where $S_t$ contains a stochastic process.</p>
+<p>Apply Ito Lemma:</p>
+<p>$$\frac{}{}$$</p>
 
       
     </div>
