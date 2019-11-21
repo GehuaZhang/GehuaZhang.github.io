@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Basic Stochastic Calculus">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-20T23:29:25.422Z">
+<meta property="og:updated_time" content="2019-11-21T10:16:04.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Derive Black-Scholes Formula">
 <meta name="twitter:description" content="Basic Stochastic Calculus">
@@ -76,15 +76,89 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Basic-Stochastic-Calculus"><a href="#Basic-Stochastic-Calculus" class="headerlink" title="Basic Stochastic Calculus"></a>Basic Stochastic Calculus</h4><a id="more"></a>
-<h3 id="I-Brownian-Motion"><a href="#I-Brownian-Motion" class="headerlink" title="I. Brownian Motion"></a>I. Brownian Motion</h3><h4 id="1-Standard-Brownian-Motion-Wiener-Process"><a href="#1-Standard-Brownian-Motion-Wiener-Process" class="headerlink" title="1. Standard Brownian Motion = Wiener Process"></a>1. Standard Brownian Motion = Wiener Process</h4><p>1) $W_0=0$</p>
-<p>2) $W_{t_n}-W_{t_k} \sim N(0,t_n-t_k)$</p>
-<p>3) Independent increments</p>
+<h3 id="I-Brownian-Motion"><a href="#I-Brownian-Motion" class="headerlink" title="I. Brownian Motion"></a>I. Brownian Motion</h3><h4 id="1-Standard-Brownian-Motion-Wiener-Process"><a href="#1-Standard-Brownian-Motion-Wiener-Process" class="headerlink" title="1. Standard Brownian Motion = Wiener Process"></a>1. Standard Brownian Motion = Wiener Process</h4><h5 id="—-Requirement"><a href="#—-Requirement" class="headerlink" title="— Requirement"></a>— Requirement</h5><ul>
+<li><p>$W_0=0$</p>
+</li>
+<li><p>$W_{t_n}-W_{t_k} \sim N(0,t_n-t_k)$</p>
+</li>
+<li><p>Independent increments</p>
+</li>
+<li><p>$W_t$ is continous</p>
+</li>
+</ul>
+<h5 id="—-Properties"><a href="#—-Properties" class="headerlink" title="—  Properties"></a>—  Properties</h5><ul>
+<li><p>$\mathbb{E}(dW_t)=0 $</p>
+</li>
+<li><p>$\mathbb{E}(dW_t^2)=dt $</p>
+</li>
+<li><p>$\text{Var}(dW_t)=dt$</p>
+</li>
+<li><p>$\text{Var}(dW_t^2)=2dt^2$</p>
+</li>
+</ul>
 <h4 id="2-Geometric-Brownian-Motion"><a href="#2-Geometric-Brownian-Motion" class="headerlink" title="2. Geometric Brownian Motion"></a>2. Geometric Brownian Motion</h4><p>$$dS_t = S_{t_n}-S_{t_{n-1}} = \mu S_t dt + \sigma S_t \sqrt{dt}$$</p>
-<p>Since $dW_t = W_{t_n}-W_{t_k} \sim N(0,dt)$, we say $dW_t=\sqrt{dt}$, plug in:</p>
+<p>Since $dW_t=\sqrt{dt}$, plug in:</p>
 <p>$$dS_t=\mu S_t dt + \sigma S_t dW_t$$</p>
 <h3 id="II-Stochastic-Calculus"><a href="#II-Stochastic-Calculus" class="headerlink" title="II. Stochastic Calculus"></a>II. Stochastic Calculus</h3><h4 id="1-Ito-Lemma"><a href="#1-Ito-Lemma" class="headerlink" title="1. Ito Lemma"></a>1. Ito Lemma</h4><p>Assume vanilla option is a function of underlying stock price $S_t$ and time $t$: $V(S_t,t)$, where $S_t$ contains a stochastic process.</p>
 <p>Apply Ito Lemma:</p>
-<p>$$\frac{}{}$$</p>
+<p>$$dV=\frac{\partial V}{\partial t}dt + \frac{\partial V}{\partial S}dS + \frac{1}{2}\frac{\partial^2 V}{\partial S^2} dS^2$$</p>
+<p>From $dS_t$ to $dS_t^2$:</p>
+<p>$$dS_t^2=\mu^2S_t^2dt^2+\sigma^2S_t^2dW_t^2+2\mu\sigma S_tdW_tdt$$</p>
+<p>Since $dW_t^2=dt$:</p>
+<p>$$dS_t^2=\mu^2S_t^2dt^2+\sigma^2S_t^2dt+2\mu\sigma S_tdW_tdt$$</p>
+<p>Ignore $dt^2$ and $dW_tdt$  because they are too small (order of $dt&gt;1$):</p>
+<p>$$dS_t^2=\sigma^2S_t^2dt$$</p>
+<p>Plug $dS_t$ and $dS_t^2$ into Ito Lemma:</p>
+<p>$$ dV=(\frac{\partial V}{\partial t}\mu S_t+\frac{\partial V}{\partial S}\mu S_t+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}\sigma^2 S_t^2)dt + \frac{\partial V}{\partial S}\sigma S_t dW_t $$</p>
+<h4 id="2-Self-Financing"><a href="#2-Self-Financing" class="headerlink" title="2. Self-Financing"></a>2. Self-Financing</h4><p>Above formula contains a stochastic term $dW_t$, in order to eliminlate it, we build a portfolio $\Pi$ with long some of underlying stocks and short some of options:</p>
+<p>Set the portion of stock to be $-\frac{\partial V}{\partial S}$, and option to be $1$, portfolio should be:</p>
+<p>$$\Pi = V - \frac{\partial V}{\partial S}S_t$$</p>
+<p>$$d\Pi = dV-\frac{\partial V}{\partial S}dS_t$$</p>
+<p>$$d\Pi = (\frac{\partial V}{\partial S}+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}\mu^2 S_t^2)dt$$</p>
+<h4 id="3-Black-Schole-Differential-Equation"><a href="#3-Black-Schole-Differential-Equation" class="headerlink" title="3. Black-Schole Differential Equation"></a>3. Black-Schole Differential Equation</h4><p>Since this portfolio contains no stochastic term, its value is certain, and from no-arbitragy theory, it must be equal to the same amount of money you gain from riskless account.</p>
+<p>$$d\Pi = r \Pi dt$$</p>
+<p>$$(\frac{\partial V}{\partial S}+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}\mu^2 S_t^2)dt = r(V-\frac{\partial V}{\partial S}S_t) dt$$</p>
+<p>$$\frac{\partial V}{\partial S}+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}\mu^2 S_t^2 = rV-\frac{\partial V}{\partial S} r S_t$$</p>
+<p>$$\frac{\partial V}{\partial S}+\frac{1}{2}\frac{\partial^2 V}{\partial S^2}\mu^2 S_t^2 + \frac{\partial V}{\partial S} r S_t - rV=0$$</p>
+<p>This is the Black-Schole Differential Equation.</p>
+<h3 id="4-Feynman-Kac-Theorem"><a href="#4-Feynman-Kac-Theorem" class="headerlink" title="4. Feynman-Kac Theorem"></a>4. Feynman-Kac Theorem</h3><p>Now we introducing Feynman-Kac Theorem:</p>
+<p>If</p>
+<p>$$dx_t = \mu(x_t,t)dt+\sigma(x_t)dW_t^{\mathbb{Q}}$$</p>
+<p>and </p>
+<p>$$\frac{\partial V}{\partial t} + \mu(x_t,t) \frac{\partial V}{\partial x} + \frac{1}{2} \sigma^2(x_t,t) \frac{\partial^2 V}{\partial x^2} -r(x,t) V(x_t,t)= 0$$</p>
+<p>with boundary $V(x_T,T)$, then:</p>
+<p>$$V(x_t,t)=E^{\mathbb{Q}}[e^{-\int_t^T r(x_u,u)du}V(x_T,T)| \mathcal{F}_t]$$</p>
+<h4 id="5-Solve-Differential-Equation"><a href="#5-Solve-Differential-Equation" class="headerlink" title="5. Solve Differential Equation"></a>5. Solve Differential Equation</h4><p>Applying Feynman-Kac:</p>
+<p>$$V(S_t,t) = E^{\mathbb{Q}}[e^{-\int_t^T r(S_u,u)du}V(S_T,T)|\mathcal{F}_t]$$</p>
+<p>If we look at the integration, since $r(S_t,t)$ is a constant riskfree rate, this becomes:</p>
+<p>$$\int_t^T rdu = r\int_t^T du = ru|_t^T=r(T-t)$$</p>
+<p>Black-Schole Differential Equation becomes:</p>
+<p>$$V(S_t,t)=E^{\mathbb{Q}}[e^{-r(T-t)}V(S_T,T)|\mathcal{F}_t]=e^{-r(T-t)}E^{\mathbb{Q}}[V(S_T,T)|\mathcal{F}_t]$$</p>
+<p>Our boundary condition for call option is $V(S_T,T)=\text{max}(S_T-K,0)$:</p>
+<p>$$V(S_t,t)=e^{-r(T-t)}E^{\mathbb{Q}}[\text{max}(S_T-K,0)|\mathcal{F}_t]$$</p>
+<p>$$=e^{-r(T-t)}(E^{\mathbb{Q}}[S_T-K]P^<em>(S_T&gt;K)+E^{\mathbb{Q}}[0]P^</em>(S_T&lt;K))$$</p>
+<p>$$=e^{-r(T-t)}E^{\mathbb{Q}}[S_T-K]P^*(S_T&gt;K)$$</p>
+<p>Recall that the expected value of a continous distribution:</p>
+<p>$$E(X)=\int_a^b x f(x)dx$$</p>
+<p>Here we have</p>
+<p>$$V(S_t,t)=e^{-r(T-t)}\int_K^{\infty}(S_T-K) f(S_T)dS_T$$</p>
+<p>$$=e^{-r(T-t)}[\int_K^{\infty}S_T f(S_T)dS_T-K\int_K^{\infty}f(S_T)dS_T]$$</p>
+<h4 id="6-Lognormal-Distribution"><a href="#6-Lognormal-Distribution" class="headerlink" title="6. Lognormal Distribution"></a>6. Lognormal Distribution</h4><p>Since $S_t$ has a lognormal distribution, some of its properties are:</p>
+<ul>
+<li>$$\int_K^{\infty}f(x)dx=\Phi(\frac{\ln x-\mu}{\sigma})$$</li>
+</ul>
+<ul>
+<li>$$\int_K^{\infty}xf(x)dx=e^{(\mu+\frac{1}{2}\sigma^2)}\Phi(\frac{\mu+\sigma^2-\ln K}{\sigma})$$</li>
+</ul>
+<p>Also, since $S_t$ is following geometric brownian motion, it also has the property that:</p>
+<p>$$E(S_T)=S_t e^{r(T-t)}$$</p>
+<h4 id="7-Call-Option-Pricing"><a href="#7-Call-Option-Pricing" class="headerlink" title="7. Call Option Pricing"></a>7. Call Option Pricing</h4><p>Apply lognormal properties to our previous equation:</p>
+<p>$$\ln S_T \sim N(\ln S_t + (r-\frac{\sigma^2}{2})(T-t),\sigma^2(T-t))$$</p>
+<p>After substitution, we have:</p>
+<p>$$V(S_t,t)=S_0 \Phi(d_1) -e^{-r(T-t)}K \Phi(d_2)$$</p>
+<p>Where:</p>
+<p>$$d_1=\frac{1}{\sigma \sqrt{T-t}}[\ln\frac{S_0}{K}+(r+\frac{1}{2}\sigma^2)(T-t)]$$</p>
+<p>$$d_2 = d_1 - \sigma \sqrt{T-t}$$</p>
 
       
     </div>
