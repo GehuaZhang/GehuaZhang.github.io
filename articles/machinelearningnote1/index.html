@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Machine Learning Note1 (tbc) - Gehua Zhang&#39;s Blog</title>
+  <title>Machine Learning Note (tbc) - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This note is for Advanced Machine Learning Course.">
+  <meta name="description" content="Basic Machine Learning Models.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Note1 (tbc)">
+<meta property="og:title" content="Machine Learning Note (tbc)">
 <meta property="og:url" content="https://gehuazhang.github.io/articles/machinelearningnote1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="This note is for Advanced Machine Learning Course.">
+<meta property="og:description" content="Basic Machine Learning Models.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-04T20:49:44.000Z">
+<meta property="og:updated_time" content="2019-11-22T21:03:29.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Note1 (tbc)">
-<meta name="twitter:description" content="This note is for Advanced Machine Learning Course.">
+<meta name="twitter:title" content="Machine Learning Note (tbc)">
+<meta name="twitter:description" content="Basic Machine Learning Models.">
   
   
     <link rel="icon" href="/favicon.png">
@@ -59,7 +59,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Machine Learning Note1 (tbc)
+      Machine Learning Note (tbc)
     </h1>
   
 
@@ -78,33 +78,108 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="This-note-is-for-Advanced-Machine-Learning-Course"><a href="#This-note-is-for-Advanced-Machine-Learning-Course" class="headerlink" title="This note is for Advanced Machine Learning Course."></a>This note is for Advanced Machine Learning Course.</h4><a id="more"></a>
+        <h4 id="Basic-Machine-Learning-Models"><a href="#Basic-Machine-Learning-Models" class="headerlink" title="Basic Machine Learning Models."></a>Basic Machine Learning Models.</h4><a id="more"></a>
 <hr>
-<h3 id="1-Markov-Chains"><a href="#1-Markov-Chains" class="headerlink" title="1. Markov Chains"></a>1. Markov Chains</h3><ul>
-<li><p>Irreducible</p>
-<p>We can access any states from any states. $Pr(x_i=s|x_j=k)&gt;0$</p>
+<h2 id="Markov-Chains"><a href="#Markov-Chains" class="headerlink" title="Markov Chains"></a>Markov Chains</h2><h3 id="1-Markov-Chains"><a href="#1-Markov-Chains" class="headerlink" title="1. Markov Chains"></a>1. Markov Chains</h3><ul>
+<li><p><em><strong>Properties</strong></em></p>
+<ul>
+<li><p><strong>Irreducible:</strong> We can access any states from any states. $Pr(x_i=s|x_j=k)&gt;0$</p>
 </li>
-<li><p>Aperiodic</p>
-<p>Transition matrix has non-zero diagonal.$Pr(x_i=s|x_{i-1}=s)&gt;0$</p>
+<li><p><strong>Aperiodic:</strong> Transition matrix has non-zero diagonal.$Pr(x_i=s|x_{i-1}=s)&gt;0$</p>
+<ul>
+<li><strong>Stationary:</strong> $P_{s-&gt;t}$ is independent of n.</li>
+</ul>
 </li>
-<li><p>Stationary</p>
-<p>$P_{s-&gt;t}$ is independent of n.</p>
+<li><p><strong>Conditional Independent:</strong> $Pr(x,y|z)=Pr(x|z)Pr(y|z)$</p>
 </li>
-<li><p>Unique Equilibrium</p>
-<p>i) Stationary<br>ii) Irreducible<br>iii) Aperiodic</p>
-</li>
-<li><p>Conditional Independent</p>
-<p>$Pr(x,y|z)=Pr(x|z)Pr(y|z)$</p>
+</ul>
 </li>
 </ul>
 <h3 id="2-Hidden-Markov-Model"><a href="#2-Hidden-Markov-Model" class="headerlink" title="2. Hidden Markov Model"></a>2. Hidden Markov Model</h3><ul>
-<li><p>Structure</p>
+<li><p><em><strong>Structure</strong></em></p>
 <p>Hidden Variable -(Trasition Matrix)-&gt; Hidden Variable -…-&gt; Hidden Variable</p>
 <p>Emission Probability = $p(y|x)$</p>
 </li>
-<li><p>Filtering Problem:Estimate Hidden Variable</p>
+<li><p><em><strong>Filtering Problem:</strong></em> Estimate Hidden Variable</p>
 <p>With emission matrix known:</p>
 <p>$$Q(k|x_n) = \frac {Pr(X_n|Z_n,X_{n-1})Pr(Z_n|X_{n-1})}{ \sum Pr(X_n|Z_n,X_{n-1}) Pr(Z_n|X_{n-1})}$$</p>
+</li>
+</ul>
+<h2 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h2><h3 id="3-K-means"><a href="#3-K-means" class="headerlink" title="3. K-means"></a>3. K-means</h3><ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+<ul>
+<li><p>Pick K and randomly assign K different centroids ($c_j, j=1..K$).</p>
+</li>
+<li><p>Repeat until convergence: Find distance of each point ($X_i,i=1..n$) and each centroids $c_j$, use it to find the closest centroids of every point, assign this point a new cluster ($j$). After all points are updated, calculate the new centroid of each cluster.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><em><strong>Pseudo-Code:</strong></em> </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Use Euclidean distance for distance measure</span><br><span class="line">Input: K, X=[x_1,x_2,..,x_n]</span><br><span class="line">1. Random location for c_j = [c_1,c_2,..,c_K]</span><br><span class="line">2. While c_j is changed between interations:</span><br><span class="line">	for i in [1 ... n]:</span><br><span class="line">		nearest_j = argmin Distance(x_i,c_j)</span><br><span class="line">		assign xi to nearest_j</span><br><span class="line">	for j in [1 ... K]:</span><br><span class="line">		c_j = mean(x_i that assigned to j)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li><p>Stuck to local minimum</p>
+</li>
+<li><p>Each trial may have different result. Initialization is important.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-K-medoids"><a href="#4-K-medoids" class="headerlink" title="4. K-medoids"></a>4. K-medoids</h3><ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+<ul>
+<li><p>Randomly assign each point to a cluster from $1$ to $K$.</p>
+</li>
+<li><p>Repeat until convergence: For each cluster, find a point $x_i$ which minimize the total pairwise distance $z_j = \text{argmin} \sum D(x_i, x_{i^*})$. Assign each points to its closest cluster $j$ from calculating $D(x_i,z_j)$</p>
+</li>
+</ul>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Input: K, X=[x_1,x_2,..,x_n]</span><br><span class="line">1. Random cluster for each point X</span><br><span class="line">2. While c_j is changed between interations:</span><br><span class="line">	for j in K:</span><br><span class="line">		x_ij = [x_i is assined j]</span><br><span class="line">		for x_i in x_ij:</span><br><span class="line">			x_i* = x_ij exclude x_i</span><br><span class="line">			c_j = argmin Distance(x_i, x_i*)</span><br><span class="line">	for i in n:</span><br><span class="line">		nearest_j = argmin Distance(x_i,c_j)</span><br><span class="line">		assign nearest_j to x_i</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li>Same as K-means, except that centroid is required to be one of the observations.</li>
+<li>Deal with categorical variables.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><h3 id="5-K-NN"><a href="#5-K-NN" class="headerlink" title="5. K-NN"></a>5. K-NN</h3><ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
+</li>
+</ul>
+<ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
+</li>
+</ul>
+<ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
+</li>
+</ul>
+<ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
 </li>
 </ul>
 

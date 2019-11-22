@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Basic Stochastic Calculus">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T19:55:35.391Z">
+<meta property="og:updated_time" content="2019-11-22T19:56:54.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Derive Black-Scholes Formula">
 <meta name="twitter:description" content="Basic Stochastic Calculus">
@@ -154,7 +154,9 @@
 <li>$$\int_K^{\infty}xf(x)dx=e^{(\mu+\frac{1}{2}\sigma^2)}\Phi(\frac{\mu+\sigma^2-\ln K}{\sigma})$$</li>
 </ul>
 <p>Also, since $S_t$ is following geometric brownian motion, it also has the property that:</p>
-<p>$$E(S_T)=S_t e^{r(T-t)}$$</p>
+<ul>
+<li>$$E(S_T)=S_t e^{r(T-t)}$$</li>
+</ul>
 <h4 id="7-Call-Option-Pricing"><a href="#7-Call-Option-Pricing" class="headerlink" title="7. Call Option Pricing"></a>7. Call Option Pricing</h4><p>Apply lognormal properties to our previous equation:</p>
 <p>$$\ln S_T \sim N(\ln S_t + (r-\frac{\sigma^2}{2})(T-t),\sigma^2(T-t))$$</p>
 <p>After substitution, we have:</p>
