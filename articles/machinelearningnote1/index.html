@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Basic Machine Learning Models.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T22:30:43.984Z">
+<meta property="og:updated_time" content="2019-11-22T22:31:26.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Note (tbc)">
 <meta name="twitter:description" content="Basic Machine Learning Models.">
@@ -147,6 +147,24 @@
 <ul>
 <li>Same as K-means, except that centroid is required to be one of the observations.</li>
 <li>Deal with categorical variables.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><h3 id="5-K-NN"><a href="#5-K-NN" class="headerlink" title="5. K-NN"></a>5. K-NN</h3><ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+<ul>
+<li>Find the K nearest neighbors around a new point, assign the majority vote of K neighbors to that point.</li>
+</ul>
+</li>
+<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: K, X_train(1,2,..,n), X_predict</span><br><span class="line">k_nn = sort(Distance(X_predict,X_train),&quot;ascending&quot;)[1:K,]</span><br><span class="line">Y_predict = majority_class(knn)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li>Can fail in high dimensions, because it becomes difficult to gather K observations close to a target point.</li>
+<li>Large $K$, smoother decision boundary, error $\downarrow$, variance $\uparrow$. Bias &amp; Variance tradeoff.</li>
 </ul>
 </li>
 </ul>
