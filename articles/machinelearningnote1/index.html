@@ -3,19 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>Machine Learning Note (tbc) - Gehua Zhang&#39;s Blog</title>
+  <title>Machine Learning Models - Gehua Zhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Basic Machine Learning Models.">
+  <meta name="description" content="Machine Learning Models.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Machine Learning Note (tbc)">
+<meta property="og:title" content="Machine Learning Models">
 <meta property="og:url" content="https://gehuazhang.github.io/articles/machinelearningnote1/index.html">
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
-<meta property="og:description" content="Basic Machine Learning Models.">
+<meta property="og:description" content="Machine Learning Models.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-22T22:33:58.908Z">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/QDA.png">
+<meta property="og:updated_time" content="2019-11-23T02:14:10.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Machine Learning Note (tbc)">
-<meta name="twitter:description" content="Basic Machine Learning Models.">
+<meta name="twitter:title" content="Machine Learning Models">
+<meta name="twitter:description" content="Machine Learning Models.">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -59,7 +62,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Machine Learning Note (tbc)
+      Machine Learning Models
     </h1>
   
 
@@ -78,7 +81,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Basic-Machine-Learning-Models"><a href="#Basic-Machine-Learning-Models" class="headerlink" title="Basic Machine Learning Models."></a>Basic Machine Learning Models.</h4><a id="more"></a>
+        <h4 id="Machine-Learning-Models"><a href="#Machine-Learning-Models" class="headerlink" title="Machine Learning Models."></a>Machine Learning Models.</h4><a id="more"></a>
 <hr>
 <h2 id="Markov-Chains"><a href="#Markov-Chains" class="headerlink" title="Markov Chains"></a>Markov Chains</h2><h3 id="1-Markov-Chains"><a href="#1-Markov-Chains" class="headerlink" title="1. Markov Chains"></a>1. Markov Chains</h3><ul>
 <li><p><em><strong>Properties</strong></em></p>
@@ -185,30 +188,57 @@
 <h3 id="7-Logit"><a href="#7-Logit" class="headerlink" title="7. Logit"></a>7. Logit</h3><ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 <ul>
-<li>$$\log [\frac{P(Y=1|X)}{P(Y=0|X)}]=\beta_0+\beta_1x_1+\beta_2x_2+…+\beta_px_p$$</li>
+<li>Using maximize likelihood to find $\beta_i$：</li>
 </ul>
 </li>
-<li><p><em><strong>Pseudo-Code:</strong></em> </p>
-</li>
+</ul>
+<p>$$ \log [\frac{P(Y=1|X)}{P(Y=0|X)}]=\beta_0+\beta_1x_1+\beta_2x_2+…+\beta_px_p $$</p>
+<p>$$\prod_{i=1}^{n} P(Y=y_i|X=x_i)=\prod_{y_i=1} P(Y=1|X=x_i)\prod_{y_i=0} P(Y=0|X=x_i)$$</p>
+<p>$$=\prod_{y_i=1}\frac{e^{\beta_0+\beta_1x_{i1}+..+\beta_px_{ip}}}{1+e^{\beta_0+\beta_1x_{i1}+..+\beta_px_{ip}}}\prod_{y_i=0}\frac{1}{1+e^{\beta_0+\beta_1x_{i1}+..+\beta_px_{ip}}}$$</p>
+<ul>
 <li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li><p>Difficult to extend to more than 2 categories. Assumed Y is a binary variable. If more than 2 categories, use baseline.</p>
+</li>
+<li><p>The coefficients become unstable when there is collinearity. Affects the convergence of the fitting algorithm.</p>
+</li>
+<li><p>When the classes are well separated, the coefficients become unstable. This is always the case when $p \ge n − 1$.</p>
 </li>
 </ul>
-<h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><ul>
+</li>
+</ul>
+<h3 id="8-LDA-Linear-Discriminant-Analysis"><a href="#8-LDA-Linear-Discriminant-Analysis" class="headerlink" title="8. LDA-Linear Discriminant Analysis"></a>8. LDA-Linear Discriminant Analysis</h3><p><img src="/articles/machinelearningnote1/LDA.png" alt="LDA"></p>
+<ul>
 <li><p><em><strong>Algorithm</strong></em></p>
+<ul>
+<li><p>Still apply Bayesian idea, $P(y|x) \propto P(y)P(x|y)$, needs to find $P(x|y)$. Split data into $k$ categories, we model each of them $P(x|y=k)$ as a Normal Distribution, hence $P(y|x)$ becomes a Multivariate Normal Distribution ($k$ normal distribution shares a same covariance. *left graph). We need to maximize $P(x|y)$. Its <a href="http://cs229.stanford.edu/section/gaussians.pdf" target="_blank" rel="noopener">PDF</a> contains three parameters: $\mu_k, \Sigma, \pi_k$.</p>
 </li>
-<li><p><em><strong>Pseudo-Code:</strong></em> </p>
-</li>
-<li><p><em><strong>Feature</strong></em></p>
+<li><p>$\mu_k$ is the center of each class $k$, $\Sigma$ is the covariance martix, estimated by vectors of deviations $(x_1-\mu_{y_1}),(x_2-\mu_{y_2}),…(x_n-\mu_{y_n})$. $\pi_k$ is the fraction of training samples of class k.</p>
 </li>
 </ul>
-<h3 id="QDA"><a href="#QDA" class="headerlink" title="QDA"></a>QDA</h3><ul>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li><p>LDA assumes common covariance to all categories ($\Sigma$ is the same for all $k$ categories).</p>
+</li>
+<li><p>LDA will have a linear decision boundary (*right graph).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-QDA-Quadratic-Discriminant-Analysis"><a href="#9-QDA-Quadratic-Discriminant-Analysis" class="headerlink" title="9. QDA-Quadratic Discriminant Analysis"></a>9. QDA-Quadratic Discriminant Analysis</h3><ul>
 <li><p><em><strong>Algorithm</strong></em></p>
-</li>
-<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+<ul>
+<li>Similar to LDA except we won’t assume a same covariance. We assume each category has its own covariance matrix $\Sigma_k$.</li>
+</ul>
 </li>
 <li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li>The decision boundary is quadratic.</li>
+</ul>
 </li>
 </ul>
+<p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA"></p>
 <h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 </li>
