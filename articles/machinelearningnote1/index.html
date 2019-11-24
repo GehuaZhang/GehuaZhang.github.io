@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM3.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM4.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM5.png">
-<meta property="og:updated_time" content="2019-11-24T01:08:50.157Z">
+<meta property="og:updated_time" content="2019-11-24T01:14:14.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML - Intro to Models">
 <meta name="twitter:description" content="Basic Machine Learning Models.">
@@ -244,17 +244,17 @@
 </li>
 </ul>
 <p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA" style="width:500px;"></p>
-<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="SVM" style="width:400px;"></p>
-<p><img src="/articles/machinelearningnote1/SVM2.png" alt="SVM" style="width:400px;"></p>
-<p><img src="/articles/machinelearningnote1/SVM3.png" alt="SVM" style="width:400px;"></p>
-<p><img src="/articles/machinelearningnote1/SVM4.png" alt="SVM" style="width:400px;"></p>
-<p><img src="/articles/machinelearningnote1/SVM5.png" alt="SVM" style="width:400px;"></p>
+<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="SVM1" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM2.png" alt="SVM2" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM3.png" alt="SVM3" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM4.png" alt="SVM4" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM5.png" alt="SVM5" style="width:400px;"></p>
 <ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 <ul>
 <li><p>Consider the convex set (minimum convex set is convex hull), every point $x$ in a convex set can be represented as a convex combination of the extreme points. Distance of a point to set: $d(x,A)=\min_{y \in A}| x-y |$. Similarly, we define margin of two set as the minimum distance to either of the convex hulls.</p>
 </li>
-<li><p><strong>Main solution:</strong> $\min | v_H |$, subject to: $y_i(\left&lt; v_H, x_i\right&gt;-c)\ge 1$. Since $| x_v | = \frac{\left&lt; v_H, x_i\right&gt;}{| v_H |}$, $\left&lt; v_H, x_i\right&gt;$ is set to be a constant, minimize $| v_H |$ is to maximize $| x_v |$, the margin between hyperplane and convex hull (upper graph SVM1). </p>
+<li><p><strong>Main solution:</strong> $\min | v_H |$, subject to: $y_i(\left&lt; v_H, x_i\right&gt;-c)\ge 1$. $y_i$ is a indicator function. Since $| x_v | = \frac{\left&lt; v_H, x_i\right&gt;}{| v_H |}$, $\left&lt; v_H, x_i\right&gt;$ is set to be a constant, minimize $| v_H |$ is to maximize $| x_v |$, the margin between hyperplane and convex hull (upper graph SVM1). </p>
 </li>
 <li><p>Solving above optimization problem is difficult, here we use Convex Duality. Find the hyperplane which maximize margin is equivalent to find the hyperplane which is orthogonal to the shortest line of two convex hulls. (see middle graph SVM2)</p>
 </li>
