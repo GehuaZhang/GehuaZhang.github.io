@@ -14,7 +14,8 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/QDA.png">
-<meta property="og:updated_time" content="2019-11-23T02:20:43.108Z">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM1.png">
+<meta property="og:updated_time" content="2019-11-24T00:26:24.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML - Intro to Models">
 <meta name="twitter:description" content="Basic Machine Learning Models.">
@@ -238,10 +239,17 @@
 </ul>
 </li>
 </ul>
-<p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA"></p>
-<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><ul>
-<li><p><em><strong>Algorithm</strong></em></p>
-</li>
+<p><img src="/articles/machinelearningnote1/QDA.png" alt="drawing" style="width:400px;"></p>
+<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="drawing" style="width:300px;"></p>
+<ul>
+<li><em><strong>Algorithm</strong></em></li>
+</ul>
+<pre><code>+ Consider the convex set (minimum convex set is convex hull), every point $x$ in a convex set can be represented as a convex combination of the extreme points. Distance of a point to set: $d(x,A)=\min_{y \in A}\| x-y \|$. Similarly, we define margin of two set as the minimum distance to either of the convex hulls.
+
++ Main solution: $\min \| v_H \|$, subject to: $y_i(\left&lt; v_H, x_i\right&gt;-c)\ge 1$. Since $\| x_v \| = \frac{\left&lt; v_H, x_i\right&gt;}{\| v_H \|}$, $\left&lt; v_H, x_i\right&gt;$ is a constant, minimize $\| v_H \|$ is to maximize $\| x_v \|$, the margin between hyperplane and convex hull. 
+
++ 
+</code></pre><ul>
 <li><p><em><strong>Pseudo-Code:</strong></em> </p>
 </li>
 <li><p><em><strong>Feature</strong></em></p>
