@@ -15,7 +15,11 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/QDA.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM1.png">
-<meta property="og:updated_time" content="2019-11-24T00:31:29.618Z">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM2.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM3.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM4.png">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM5.png">
+<meta property="og:updated_time" content="2019-11-24T01:08:50.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML - Intro to Models">
 <meta name="twitter:description" content="Basic Machine Learning Models.">
@@ -241,21 +245,32 @@
 </ul>
 <p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA" style="width:500px;"></p>
 <h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="SVM" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM2.png" alt="SVM" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM3.png" alt="SVM" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM4.png" alt="SVM" style="width:400px;"></p>
+<p><img src="/articles/machinelearningnote1/SVM5.png" alt="SVM" style="width:400px;"></p>
 <ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 <ul>
 <li><p>Consider the convex set (minimum convex set is convex hull), every point $x$ in a convex set can be represented as a convex combination of the extreme points. Distance of a point to set: $d(x,A)=\min_{y \in A}| x-y |$. Similarly, we define margin of two set as the minimum distance to either of the convex hulls.</p>
 </li>
-<li><p>Main solution: $\min | v_H |$, subject to: $y_i(\left&lt; v_H, x_i\right&gt;-c)\ge 1$. Since $| x_v | = \frac{\left&lt; v_H, x_i\right&gt;}{| v_H |}$, $\left&lt; v_H, x_i\right&gt;$ is set to be a constant, minimize $| v_H |$ is to maximize $| x_v |$, the margin between hyperplane and convex hull. </p>
+<li><p><strong>Main solution:</strong> $\min | v_H |$, subject to: $y_i(\left&lt; v_H, x_i\right&gt;-c)\ge 1$. Since $| x_v | = \frac{\left&lt; v_H, x_i\right&gt;}{| v_H |}$, $\left&lt; v_H, x_i\right&gt;$ is set to be a constant, minimize $| v_H |$ is to maximize $| x_v |$, the margin between hyperplane and convex hull (upper graph SVM1). </p>
 </li>
-<li><p>Solving above optimization problem is difficult, here we use Convex Duality.</p>
+<li><p>Solving above optimization problem is difficult, here we use Convex Duality. Find the hyperplane which maximize margin is equivalent to find the hyperplane which is orthogonal to the shortest line of two convex hulls. (see middle graph SVM2)</p>
+</li>
+<li><p><strong>Dual problem:</strong> Derive from duality: $\min | u-v |^2$, we could have new optimization problem: $\max \sum \alpha_i - \frac{1}{2}\sum \alpha_i \alpha_j y_i y_j \left&lt; x_i, x_j \right&gt;$, subject to $\sum y_i\alpha_i = 0$.</p>
+</li>
+<li><p>Soft margin and slack variable. Permit training data to cross the margin, but impose cost which increases the further beyond the margin we are. The cost parameter $\gamma$ is very small, many points may end up beyond the margin boundary. If it’s large, we recover the original SVM. (graph SVM3)</p>
+</li>
+<li><p>However until now, our SVM is still a linear classifier. We use Kernel Trick to map $\left&lt; x_i, x_j \right&gt;$ to $k\left&lt; x_i, x_j \right&gt;$, where $k=\exp(-\frac{| x_i-x_j |^2}{2\sigma^2})$, is called a RBF kernel. (graph SVM4 &amp; SVM5)</p>
 </li>
 </ul>
 </li>
 <li><p><em><strong>Pseudo-Code:</strong></em> </p>
 </li>
-<li><p><em><strong>Feature</strong></em></p>
-</li>
+</ul>
+<ul>
+<li><em><strong>Feature</strong></em></li>
 </ul>
 <h2 id="Unsupervised"><a href="#Unsupervised" class="headerlink" title="Unsupervised"></a>Unsupervised</h2>
       
