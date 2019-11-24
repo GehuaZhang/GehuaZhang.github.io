@@ -12,6 +12,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Basic Machine Learning Models.">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/ridgelasso.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/QDA.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM1.png">
@@ -19,11 +20,11 @@
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM3.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM4.png">
 <meta property="og:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/SVM5.png">
-<meta property="og:updated_time" content="2019-11-24T01:14:14.553Z">
+<meta property="og:updated_time" content="2019-11-24T01:49:23.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ML - Intro to Models">
 <meta name="twitter:description" content="Basic Machine Learning Models.">
-<meta name="twitter:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/LDA.png">
+<meta name="twitter:image" content="https://gehuazhang.github.io/articles/machinelearningnote1/ridgelasso.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -212,7 +213,26 @@
 </ul>
 </li>
 </ul>
-<h3 id="8-LDA-Linear-Discriminant-Analysis"><a href="#8-LDA-Linear-Discriminant-Analysis" class="headerlink" title="8. LDA-Linear Discriminant Analysis"></a>8. LDA-Linear Discriminant Analysis</h3><p><img src="/articles/machinelearningnote1/LDA.png" alt="LDA" style="width:500px;"></p>
+<h3 id="8-Ridge-amp-Lasso-Regression"><a href="#8-Ridge-amp-Lasso-Regression" class="headerlink" title="8. Ridge &amp; Lasso Regression"></a>8. Ridge &amp; Lasso Regression</h3><p><img src="/articles/machinelearningnote1/ridgelasso.png" alt="Ridge & Lasso" style="width:500px;"></p>
+<p>$$\min_{ \beta } \sum_{i=1}^N (y_i - \beta_0 - \sum_{j=1}  \beta_j x_{i,j})^2  + \lambda \left( \frac{1-\alpha}{2}\sum_{j=1}^p \beta_j^2 + \alpha \sum_{j=1}^p |\beta_j| \right)$$</p>
+<ul>
+<li><p><em><strong>Algorithm</strong></em></p>
+<ul>
+<li>When $\alpha= 0$, it’s Ridge, while $\alpha= 1$, it’s Lasso.</li>
+</ul>
+</li>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li><p>Scale the data before training elastic model.</p>
+</li>
+<li><p>The parameter $\lambda$ is a tuning parameter. It modulates the importance of fit vs. shrinkage.</p>
+</li>
+<li><p>The Lasso shrinks some of the coefficients all the way to zero while Ridge cannot.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-LDA-Linear-Discriminant-Analysis"><a href="#9-LDA-Linear-Discriminant-Analysis" class="headerlink" title="9. LDA-Linear Discriminant Analysis"></a>9. LDA-Linear Discriminant Analysis</h3><p><img src="/articles/machinelearningnote1/LDA.png" alt="LDA" style="width:500px;"></p>
 <ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 <ul>
@@ -231,7 +251,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="9-QDA-Quadratic-Discriminant-Analysis"><a href="#9-QDA-Quadratic-Discriminant-Analysis" class="headerlink" title="9. QDA-Quadratic Discriminant Analysis"></a>9. QDA-Quadratic Discriminant Analysis</h3><ul>
+<h3 id="10-QDA-Quadratic-Discriminant-Analysis"><a href="#10-QDA-Quadratic-Discriminant-Analysis" class="headerlink" title="10. QDA-Quadratic Discriminant Analysis"></a>10. QDA-Quadratic Discriminant Analysis</h3><p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA" style="width:500px;"></p>
+<ul>
 <li><p><em><strong>Algorithm</strong></em></p>
 <ul>
 <li>Similar to LDA except we won’t assume a same covariance. We assume each category has its own covariance matrix $\Sigma_k$.</li>
@@ -243,8 +264,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/articles/machinelearningnote1/QDA.png" alt="QDA" style="width:500px;"></p>
-<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="SVM1" style="width:400px;"></p>
+<h3 id="11-SVM"><a href="#11-SVM" class="headerlink" title="11. SVM"></a>11. SVM</h3><p><img src="/articles/machinelearningnote1/SVM1.png" alt="SVM1" style="width:400px;"></p>
 <p><img src="/articles/machinelearningnote1/SVM2.png" alt="SVM2" style="width:400px;"></p>
 <p><img src="/articles/machinelearningnote1/SVM3.png" alt="SVM3" style="width:400px;"></p>
 <p><img src="/articles/machinelearningnote1/SVM4.png" alt="SVM4" style="width:400px;"></p>
@@ -266,13 +286,16 @@
 </li>
 </ul>
 </li>
-<li><p><em><strong>Pseudo-Code:</strong></em> </p>
+<li><p><em><strong>Feature</strong></em></p>
+<ul>
+<li><p>Robustness against outliers</p>
+</li>
+<li><p>Nonlinear decision boundary</p>
 </li>
 </ul>
-<ul>
-<li><em><strong>Feature</strong></em></li>
+</li>
 </ul>
-<h2 id="Unsupervised"><a href="#Unsupervised" class="headerlink" title="Unsupervised"></a>Unsupervised</h2>
+<h3 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h3><h3 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h3><h3 id="ADA-Boosting"><a href="#ADA-Boosting" class="headerlink" title="ADA Boosting"></a>ADA Boosting</h3><h3 id="EM"><a href="#EM" class="headerlink" title="EM"></a>EM</h3>
       
     </div>
     
