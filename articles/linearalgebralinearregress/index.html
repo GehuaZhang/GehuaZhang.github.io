@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Matrix Operations and Linear Regression">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-15T18:11:40.650Z">
+<meta property="og:updated_time" content="2020-02-15T18:53:49.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Algebra For Linear Regression">
 <meta name="twitter:description" content="Matrix Operations and Linear Regression">
@@ -105,6 +105,25 @@
 <p>Set it to $0$:</p>
 <p>$$\frac{\partial f}{\partial \beta} = 0 \Rightarrow  X^T X \beta = X^T y $$</p>
 <p>$$\hat{\beta} = (X^T X)^{-1}X^T y$$</p>
+<h3 id="III-Ridge-Regression"><a href="#III-Ridge-Regression" class="headerlink" title="III. Ridge Regression"></a>III. Ridge Regression</h3><p>Instead of minimize $\epsilon^2 = (y-\beta X)^T(y-\beta X)$, we add more penalty on the number of features:</p>
+<p>$$\min \text{ } (y-\beta X)^T(y-\beta X)+\lambda \beta^T \beta$$ </p>
+<p>Similarly,</p>
+<p>$$f(\beta) = y^T y - X^T \beta^T y - y^T \beta X + X^T \beta^T \beta X + \lambda \beta^T \beta$$</p>
+<p>$$\frac{\partial f}{\partial \beta} = 0 - X^T y - (y^T X)^T + 2(X^T X)\beta + 2\lambda \beta$$</p>
+<p>$$=-2X^Ty + 2(X^T X + \lambda)\beta$$</p>
+<p>$$\frac{\partial f}{\partial \beta} = 0 \Rightarrow \hat{\beta} = (X^TX + \lambda)^{-1}X^T y$$</p>
+<h3 id="IV-SVD"><a href="#IV-SVD" class="headerlink" title="IV. SVD"></a>IV. SVD</h3><p>SVD of $X$, for any $n \times p$ matrix $X$:</p>
+<p>$$X= UDV^T$$</p>
+<p>Where $U,V$ are orthogonal matrix and $D$ is diagonal matrix.</p>
+<p>$$X^T X = (VD^TU^T)(UDV^T) = VD^TU^TUDV^T$$</p>
+<p>Since $U$ is orthogonal: $U^T=U^{-1}$,</p>
+<p>$$X^T X =VD^TU^{-1}UDV^T = VD^TDV^T$$</p>
+<p>Since $D$ is diagonal:</p>
+<p>$$X^T X = VD^2V^T$$</p>
+<p>Hence, $V$ is all the $(X^T X)$’s eigen vectors spaned matrix of corresponding eigen values, and $D$ is all the $(X^T X)$’s eigen value spaned diagonal matrix: </p>
+<p>$$V = [v_1 | v_2| … |v_n] \text{ , } $$</p>
+<p>$$D=<br>\begin{bmatrix}<br>\lambda_1^2 &amp; 0 &amp; 0\\<br>.. &amp; .. &amp; ..\\<br>0 &amp; 0 &amp; \lambda_n^2<br>\end{bmatrix}<br>$$</p>
+<p>Where $v_n$ are all eigen vectors of $X^T X$, $\lambda_n$ are all eigen values of $X^T X$.</p>
 
       
     </div>
