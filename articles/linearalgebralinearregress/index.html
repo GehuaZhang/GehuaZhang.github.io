@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Gehua Zhang&#39;s Blog">
 <meta property="og:description" content="Matrix Operations and Linear Regression">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-15T18:53:49.480Z">
+<meta property="og:updated_time" content="2020-02-15T19:21:26.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linear Algebra For Linear Regression">
 <meta name="twitter:description" content="Matrix Operations and Linear Regression">
@@ -124,6 +124,15 @@
 <p>$$V = [v_1 | v_2| … |v_n] \text{ , } $$</p>
 <p>$$D=<br>\begin{bmatrix}<br>\lambda_1^2 &amp; 0 &amp; 0\\<br>.. &amp; .. &amp; ..\\<br>0 &amp; 0 &amp; \lambda_n^2<br>\end{bmatrix}<br>$$</p>
 <p>Where $v_n$ are all eigen vectors of $X^T X$, $\lambda_n$ are all eigen values of $X^T X$.</p>
+<h3 id="V-LU-Decomposition-and-Cholesky-Decompostion"><a href="#V-LU-Decomposition-and-Cholesky-Decompostion" class="headerlink" title="V. LU Decomposition and Cholesky Decompostion"></a>V. LU Decomposition and Cholesky Decompostion</h3><h4 id="1-LU-Decomposition-A-LU"><a href="#1-LU-Decomposition-A-LU" class="headerlink" title="1. LU Decomposition $A=LU$:"></a>1. LU Decomposition $A=LU$:</h4><p>$$<br>\begin{bmatrix}<br>a_{11} &amp; a_{12} &amp; a_{13} \\<br>a_{21} &amp; a_{22} &amp; a_{23} \\<br>a_{31} &amp; a_{32} &amp; a_{33}<br>\end{bmatrix} =<br>\begin{bmatrix}<br>L_{11} &amp; 0 &amp; 0 \\<br>L_{21} &amp; L_{22} &amp; 0 \\<br>L_{31} &amp; L_{32} &amp; L_{33}<br>\end{bmatrix}<br>\begin{bmatrix}<br>U_{11} &amp; U_{12} &amp; U_{13} \\<br>0 &amp; U_{22} &amp; U_{23} \\<br>0 &amp; 0 &amp; U_{33}<br>\end{bmatrix}<br>$$</p>
+<h4 id="2-Cholesky-Decompostion-A-LL-T"><a href="#2-Cholesky-Decompostion-A-LL-T" class="headerlink" title="2. Cholesky Decompostion $A=LL^T$:"></a>2. Cholesky Decompostion $A=LL^T$:</h4><p>$$<br>\begin{bmatrix}<br>a_{11} &amp; a_{12} &amp; a_{13} \\<br>a_{21} &amp; a_{22} &amp; a_{23} \\<br>a_{31} &amp; a_{32} &amp; a_{33}<br>\end{bmatrix} =<br>\begin{bmatrix}<br>L_{11} &amp; 0 &amp; 0 \\<br>L_{21} &amp; L_{22} &amp; 0 \\<br>L_{31} &amp; L_{32} &amp; L_{33}<br>\end{bmatrix}<br>\begin{bmatrix}<br>L_{11} &amp; L_{21} &amp; L_{31} \\<br>0 &amp; L_{22} &amp; L_{32} \\<br>0 &amp; 0 &amp; L_{33}<br>\end{bmatrix}<br>$$</p>
+<p>We have a general form for values of Cholesky Decompostion matrix $L$:</p>
+<h5 id="1-For-elements-lie-in-diagnoal"><a href="#1-For-elements-lie-in-diagnoal" class="headerlink" title="1) For elements lie in diagnoal:"></a>1) For elements lie in diagnoal:</h5><p>$$L_{kk}=\sqrt{a_{kk}-\sum_{j=1}^{k-1}L_{kj}^2}$$</p>
+<p>For example,</p>
+<p>$$L_{33}=\sqrt{a_{33}-L_{31}^2-L_{32}^2}$$</p>
+<h5 id="1-For-elements-lie-below-diagnoal"><a href="#1-For-elements-lie-below-diagnoal" class="headerlink" title="1) For elements lie below diagnoal:"></a>1) For elements lie below diagnoal:</h5><p>$$L_{ik}=\frac{1}{L_{kk}}(a_{ik}-\sum_{j=1}^{k-1}L_{ij}L_{kj})$$</p>
+<p>For example,</p>
+<p>$$L_{32}=\frac{1}{L_{22}}(a_{32}- L_{31}L_{21} )$$</p>
 
       
     </div>
