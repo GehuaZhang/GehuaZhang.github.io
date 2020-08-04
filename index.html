@@ -81,21 +81,13 @@
 </select>
 
 
-<script>
-function onLoad(){
-var search = location.search;
-if (!baisearch){
-return;
-}
-var args = search.match(/username=(\w+)/);
-if (args[1]){
-alert(args[1] + "登陆成du功!zhi");
-}
-}
-</script>
-<body onload="onLoad();">
-<form action="./m.htm" method="post">
-<input type="submit" value="提交dao">
+<body>
+    <form action="/search-post" method="post">
+        <input type="text" name="q">
+        <input type="submit" value="Submit">
+    </form>
+    <p>{{ rlt }}</p>
+</body>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -179,7 +171,7 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-</form></body>
+
       
     </div>
     
